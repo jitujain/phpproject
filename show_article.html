@@ -2,12 +2,10 @@
 <head>
 	<title>show article</title>
 </head>
-<body>
-
-     
+<body>     
 <?php
 
-$host="localhost";
+/**$host="localhost";
 $user="root";
 $pwd="jitu";
 
@@ -17,7 +15,9 @@ if(! $conn )
 {
 	die('Could not connect: ' . mysql_error());
 }
-$sql = 'SELECT * FROM article where status="public"';
+**/ 
+//retrive the data from article table
+$sql = 'SELECT * FROM article where status = "public"';
 $result = mysql_query( $sql,$conn);
 
 while($row = mysql_fetch_array($result, MYSQL_ASSOC))
@@ -27,12 +27,5 @@ while($row = mysql_fetch_array($result, MYSQL_ASSOC))
 echo $row['title'];
 ?>
 </div>
-
-        
-
-
-
-
-	
 </body>
 </html>

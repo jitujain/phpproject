@@ -1,6 +1,6 @@
 <?php
 
-$host="localhost";
+/**$host="localhost";
 $user="root";
 $pwd="jitu";
 
@@ -9,25 +9,19 @@ mysql_select_db('project',$conn)or die('not get db');
 if(! $conn )
 {
 	die('Could not connect: ' . mysql_error());
-}
-$sql = 'SELECT * FROM article where status="public"';
-$result = mysql_query( $sql,$conn);
+}**/
+include 'mysql.php';
+// retriving data from article table where status ois public;
+$sql = 'SELECT * FROM article where status = "public"';
+$result = mysql_query( $sql,$conn );
 
-while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 {
-
-echo '<a href=fullnew.php?aid='.$row['articleid'].' >';
-echo  '<div style="width:196px;height:66px;background-color:red;float:left;margin-left:20px;">';
-
-echo $row['title']."............";
-
-
-
-echo '</div>'	;
-echo '</a>';
-
+// display the article as teaser page
+	echo '<a href = fullnew.php?aid='.$row['articleid'].'>';
+	echo  '<div style = "width:196px;height:66px;background-color:red;float:left;margin-left:20px;">';
+	echo $row['title'] . "............";
+	echo '</div>'	;
+	echo '</a>';
 }
-
-        //mysql_select_db('project',$conn);
-$result = mysql_query( $sql,$conn);
 ?>

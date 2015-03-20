@@ -1,16 +1,15 @@
-
 <html>
-
 <head>
 	<title>Login page</title>
-	<link rel="stylesheet" type="text/css" href="ind.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="reg.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "ind.css">
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src = "reg.js"></script>
+	<!-- script execute after java script is off done by browser -->
 	<noscript>
-		<style type="text/css">
+		<style type = "text/css">
 			#checkvalue {display:none;}
 		</style>
-		<div class="noscriptmsg">
+		<div class = "noscriptmsg">
 			You don't have javascript enabled.  Good luck with that.
 			<br>
 			Please Enable your java Sript.
@@ -22,49 +21,41 @@
 
 
 	<?php
-	if(isset($_POST['submit']))
-	{
-
-
-		$host="localhost";
-		$user="root";
-		$pwd="jitu";
+	if( isset($_POST['submit']) )
+	{		
 		$mail1=$_POST['mail1'];
 		$pass1=$_POST['pass'];
-
-        session_start();
-
-
-
+		session_start();
+		/**$host="localhost";
+		$user="root";
+		$pwd="jitu";
 		$conn =mysql_connect($host,$user,$pwd) or die("error in connection");
 		mysql_select_db('project',$conn)or die('not get db');
 		if(! $conn )
 		{
 			die('Could not connect: ' . mysql_error());
 		}
-		$sql = "SELECT * FROM register where email='$mail1' and pass='$pass1'";
+		**/
+		//include the mysql connection file
+		include 'mysql.php';
 
-//mysql_select_db('project',$conn);
-		$result = mysql_query( $sql,$conn);
-		$count=mysql_num_rows($result);
-		if($count==1)
+		$sql = "SELECT * FROM register where email = '$mail1' and pass = '$pass1'";
+
+		$result = mysql_query( $sql,$conn );
+		$count =  mysql_num_rows( $result );
+		if( $count == 1 )
 		{
-			while($row=mysql_fetch_array($result))
+			while( $row = mysql_fetch_array($result)  )
 			{
 
-echo 
-$_SESSION['email2'] = $row['email'];
-$_SESSION['password2']   = $row['pass'];
-$_SESSION['utype2']     = $row['utype'];
-$_SESSION['uname2']=$row['uname'];
-
-
-
+                // user information store in session				
+				$_SESSION['email2'] = $row['email'];
+				$_SESSION['password2'] = $row['pass'];
+				$_SESSION['utype2'] = $row['utype'];
+				$_SESSION['uname2'] = $row['uname'];
 			}
-
-
-			header("location:teacher.php");
-
+            //redirect on teacher.php page
+			header( "location:teacher.php" );
 		}
 		else
 		{
@@ -108,22 +99,22 @@ echo "Fetched data successfully\n";*/
 mysql_close($conn);
 }
 ?>
+<!--include the header file -->
 <?php
-	include 'header.html';
-	?>
-
-	<div class="formdes">
-	<p id="formloginid"><b>Please Login From Here<b></p> 
-<form  action="login.php" method="POST" >
-	<input type="text" name="mail1" class="textbox" placeholder="Enter Email"><br>
-	<input type="pass" name="pass" class="textbox" placeholder="Enter password"><br>
-	<input type="submit" name="submit" value="Login"  id="loginid">
-
-</form>
+include 'header.html';
+?>
+<!--login form -->
+<div class = "formdes">
+	<p id = "formloginid"> <b>Please Login From Here</b> </p> 
+	<form  action = "login.php" method = "POST" >
+		<input type = "text" name = "mail1" class = "textbox" placeholder = "Enter Email"><br>
+		<input type = "pass" name = "pass" class = "textbox" placeholder = "Enter password"><br>
+		<input type = "submit" name = "submit" value = "Login"  id = "loginid">
+	</form>
 </div>
-
-	<?php
-	include 'bottom.html';
-	?>
+<!--include the bottom file -->
+<?php
+include 'bottom.html';
+?>
 </body>
 </html>

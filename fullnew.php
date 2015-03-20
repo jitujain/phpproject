@@ -1,32 +1,30 @@
-
 <html>
 <head>
-	<title></title>
+	<title>full news</title>
 </head>
 <body >
-<div style="width:700px;height:600px;background-color:#FFF1A8;margin-left: auto;
-margin-right: auto;">
-<b></b>
+	<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
+	margin-right:auto; text-align:center;">
+	<?php
+// get the id from url 
+	$aid=$_GET['aid'];
+// include mysql connection file
+	include 'mysql.php';
+// retriving the value from article table
+	$sql = "SELECT * FROM article where articleid='$aid' ";
+	$result = mysql_query( $sql,$conn);
+	while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
+	{
+		echo '<b>' . $row['title'] . '</b>';
+		echo '<br>';
+		echo $row['art_text'];
+	}
+	?>
+	<!-- design of comment button  -->
+	<div style="width:700px;height:40px;background-color:#B6B6B6;margin-top:20px;">
+		<input type="button" value="Comment" style="width:80px;height:36px;margin-top:2px;">
+	</div>
 </div>
 
 </body>
 </html>
-
-
-<?php
-
-$aid=$_GET['aid'];
-echo $aid;
-$host="localhost";
-$user="root";
-$pwd="jitu";
-
-$conn =mysql_connect($host,$user,$pwd) or die("error in connection");
-mysql_select_db('project',$conn)or die('not get db');
-if(! $conn )
-{
-	die('Could not connect: ' . mysql_error());
-}
-$sql = 'SELECT * FROM article where status="public"';
-$result = mysql_query( $sql,$conn);
-?>
