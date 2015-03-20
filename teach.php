@@ -31,7 +31,9 @@ if( isset($_POST['submit'] ))
 	{
 			 die( 'Could not enter data: ' . mysql_error() );
 	}
+
 	mysql_close( $conn );
+	header( "location:teacher.php" );
 
 }
 else

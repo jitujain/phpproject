@@ -32,6 +32,7 @@
 		<div>
 			<a href = "#" > Article </a >
 				<a href = "content.php" > Content </a >
+				<a href = "showArticle.php" > show old articles </a>
 				</div>
 				<p id = "formid"> <b>Please Create Your News Article Here</b> </p> 
 				<form  action = "teach.php" method = "POST">

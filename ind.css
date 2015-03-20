@@ -231,3 +231,9 @@ a{
 	text-align: center;
 	padding: 5px;
 }
+.comment_box
+{
+	width:700px;
+	height:40px;
+	margin-top: 40px;
+}
