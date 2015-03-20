@@ -31,7 +31,7 @@
 			<!-- content page design -->
 		</div>
 		<p id = "formid"> <b>Please Create Your Content Here</b> </p> 
-		<form  action = "content_submit.php" method = "POST">
+		<form  action = "addContent.php" method = "POST">
 			<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
 			<input type = "text" name = "article" class = "articlebox" placeholder = "Enter Article"><br>
 			Private<input type = "radio" name = "status" value = "private">Public<input type = "radio" name = "status" value = "public"><br>

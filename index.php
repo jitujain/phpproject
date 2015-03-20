@@ -1,5 +1,6 @@
 <html>
 <head>
+	<title>Login page</title>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src = "reg.js"></script>
@@ -15,40 +16,122 @@
 		</div>
 	</noscript>
 </head>
+
 <body>
-	<!-- include header file -->
+
+
 	<?php
-	include 'header.html';
-	?>
-	<div class = "formdes">
+	if( isset($_POST['submit']) )
+	{		
+		$mail1=$_POST['mail1'];
+		$pass1=$_POST['pass'];
+		session_start();
+		/**$host="localhost";
+		$user="root";
+		$pwd="jitu";
+		$conn =mysql_connect($host,$user,$pwd) or die("error in connection");
+		mysql_select_db('project',$conn)or die('not get db');
+		if(! $conn )
+		{
+			die('Could not connect: ' . mysql_error());
+		}
+		**/
+		//include the mysql connection file
+		include 'mysql.php';
 
-		<!-- form description -->
+		$sql = "SELECT * FROM register where email = '$mail1' and pass = '$pass1'";
 
-		<p id = "formid"><b>Please Complete your deatils</b></p> 
-		
-		<form id = "checkvalue"   action= "<?php $_PHP_SELF ?>" method = "POST" >
-			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox">	<a href = "login.php" >Login </a><br>
-			<input type = "text"     placeholder = "Enter username"   id = "uname" class = "textbox"><br>
-			<input type = "password" placeholder = "Create password"  id = "pass" class = "textbox"><br>
-			<input type = "text"     placeholder = "First name" class = "in"  id = "fname">
-			<input type = "text"     placeholder = "Last name" class = "in1"  id = "lname"><br>
-			<input type = "checkbox" class = "checkboxid1">  <span id = "checkboxid"> keep me logged when using this computer </span><br>
-			<input type = "checkbox" class = "checkboxid1" > <span id = "checkboxid"> Email me a weekly newslatter </span>
-			<input type = "checkbox" class = "checkboxid" > <span id = "checkboxid"> Email me a daily newslatter </span>
-			<!-- code of the submit button and that div-->
-			<div class = "submit">
-				<input type = "submit" value = "Complete Sign-up" id = "sub" >
-				<span class = "submittext" >&nbsp;   By Registering you confirm that you agree with our
-					<br>
-					<a href = "">Terms &amp Conditions</a>&nbsp; and &nbsp;<a href = "">Privacy policy</a>
-				</span>
-			</div>
-		</form>
+		$result = mysql_query( $sql,$conn );
+		$count =  mysql_num_rows( $result );
+		if( $count == 1 )
+		{
+			$utype;
+			while( $row = mysql_fetch_array($result)  )
+			{
 
-	</div>
-	<!--include bottoom file  -->
-	<?php
-	include 'bottom.html';
-	?>
+                // user information store in session				
+				$_SESSION['email2'] = $row['email'];
+				$_SESSION['password2'] = $row['pass'];
+				$_SESSION['utype2'] = $row['utype'];
+				$utype = $row['utype'];
+				$_SESSION['uname2'] = $row['uname'];
+			}
+            //redirect on teacher.php page
+
+            if( strcmp($utype, 'admin')==0)
+            {
+                header( "location:admin.php" );
+            }
+            elseif( strcmp($utype, 'teacher')==0)
+            { 
+            	header( "location:teacher.php" );
+            }
+            else
+            {
+            	header( "location:student.php" );
+            }
+			
+
+		}
+		else
+		{
+			echo "please provide the right username and password";
+		}
+//while($row=mysql_fetch_array($result))
+//	echo "hello".$row['email'];
+/*echo $count;
+if($count==1)
+{
+	header("location:loginval.php");
+
+}
+else
+{
+	echo "fdefee";
+}
+/*if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+{
+    $_email="{$row['email']}";
+    $_pass="{$row['pass']}";
+   
+	//if(strcmp($mail, $_email)!=0 && strcmp($pass, $_pass)!=0)
+	//{
+    echo "EMP ID :{$row['email']}  <br> ".
+         "EMP NAME : {$row['pass']} <br> ".
+
+         "--------------------------------<br>";
+     //}
+     //else
+     //{
+     	echo "byee";
+     //}
+     
+} 
+echo "Fetched data successfully\n";*/
+mysql_close($conn);
+}
+?>
+<!--include the header file -->
+<?php
+include 'header.html';
+?>
+<!--login form -->
+<div class = "formdes">
+    
+	<p id = "formloginid"> <b>Please Login From Here</b> </p> 
+	<form  action = "index.php" method = "POST" >
+		<input type = "text" name = "mail1" class = "textbox" placeholder = "Enter Email"><br>
+		<input type = "pass" name = "pass" class = "textbox" placeholder = "Enter password"><br>
+		<input type = "submit" name = "submit" value = "Login"  id = "loginid">
+	</form>
+</div>
+<!--include the bottom file -->
+<?php
+include 'bottom.html';
+?>
 </body>
 </html>
