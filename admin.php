@@ -26,17 +26,17 @@
 
 		<p id = "formid"><b>Please Complete your deatils</b></p> 
 		
-		<form id = "checkvalue"   action= "<?php $_PHP_SELF ?>" method = "POST" >
-			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox">	<br>
-			<input type = "text"     placeholder = "Enter username"   id = "uname" class = "textbox"><br>
-			<input type = "password" placeholder = "Create password"  id = "pass" class = "textbox"><br>
-			<input type = "text"     placeholder = "First name" class = "in"  id = "fname">
-			<input type = "text"     placeholder = "Last name" class = "in1"  id = "lname"><br>
-			USERTYPE<select>
-				       <option>select</option>
-				       <option>admin</option>
-				       <option>student</option>
-				       <option>teacher</option>
+		<form id = "checkvalue"   action= "register.php" method = "POST" >
+			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox" name = "email">	<br>
+			<input type = "text"     placeholder = "Enter username"   id = "uname" class = "textbox" name = "uname"><br>
+			<input type = "password" placeholder = "Create password"  id = "pass" class = "textbox" name = "pass"><br>
+			<input type = "text"     placeholder = "First name" class = "in"  id = "fname" name = "fname">
+			<input type = "text"     placeholder = "Last name" class = "in1"  id = "lname" name = "lname"><br>
+			<select class = "textbox" id = "utype" name = "utype">
+				       <option><span style = "font-family: cambria;">Select UserType</span></option>
+				       <option><span style = "font-family: cambria;">Admin</span></option>
+				       <option><span style = "font-family: cambria;">Student</span></option>
+				       <option><span style = "font-family: cambria;">Teacher</span></option>
 			        </select>
 			<input type = "checkbox" class = "checkboxid1">  <span id = "checkboxid"> keep me logged when using this computer </span><br>
 			<input type = "checkbox" class = "checkboxid1" > <span id = "checkboxid"> Email me a weekly newslatter </span>

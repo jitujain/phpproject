@@ -8,13 +8,14 @@ $(document).ready(function(){
     var uname=$("#uname").val();
     var fname=$("#fname").val();
     var lname=$("#lname").val();
+    var utype=$("#utype").val();
               // Checking Empty Fields
 
 
 
 
 
-              if ($.trim(sEmail).length == 0   || $.trim(pwd).length==0 || $.trim(uname).length==0 || $.trim(fname).length==0 || $.trim(lname).length==0) {
+              if ($.trim(sEmail).length == 0   || $.trim(pwd).length == 0 || $.trim(uname).length == 0 || $.trim(fname).length == 0 || $.trim(lname).length == 0  ){
                alert('All fields are mandatory');
                return false;
                
