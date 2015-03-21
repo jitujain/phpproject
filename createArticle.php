@@ -16,8 +16,8 @@ if( empty($uemail) || empty($upass))
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src = "reg.js"></script>
-	<!--noscript code  -->
+	<script src= "reg.js"></script>
+	<!-- script execute after java script is off done by browser -->
 	<noscript>
 		<style type = "text/css">
 			#checkvalue {display:none;}
@@ -30,11 +30,13 @@ if( empty($uemail) || empty($upass))
 	</noscript>
 </head>
 <body >
-	<!-- include hearder file -->
+
+	<!-- include header file-->
+
 	<?php
 	include 'header.html';
 	?>
-
+	<!-- designing code-->
 	<div class = "formdes">
 		<?php
 		session_start();
@@ -44,27 +46,27 @@ if( empty($uemail) || empty($upass))
 		<div class="subheader">
 		<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 		<a href="logout.php"><span class="logout">Logout</span></a>
-				<a href = "createArticle.php" >Create Article </a >
+				<a href = "content.php" >Create Content </a >
 				<a href = "showArticle.php" > Show  Articles </a>
 				<a href = "showContent.php" > Show  Contents </a>
 		</div>
-		
-			<!-- content page design -->
-		
-		<p id = "formid"> <b>Please Create Your Content Here</b> </p> 
-		<form  action = "addContent.php" method = "POST">
-			<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
-			<textarea name = "article" class = "articlebox" placeholder = "Enter Article" rows="3" cols="25"></textarea><br>
-			<span class = "selectRadio">Select Status Type</span>
+				<p id = "formid"> <b>Please Create Your News Article Here</b> </p> 
+				
+				<form  action = "teach.php" method = "POST">
+					<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
+					<textarea name = "article" class = "articlebox" placeholder = "Enter Article" rows="3" cols="25"></textarea><br>
+					<span class = "selectRadio">Select Status Type</span>
 					<span class = "statusText">Private<span><input type = "radio" name = "status" value = "private" class="radio" checked="checked">
 					<span class = "statusText">Public</span><input type = "radio" name = "status" value = "public" class="radio"><br>
-			<input type = "submit" name = "submit" value = "Login"  id = "loginid">
-		</form>
+					<input type = "submit" name = "submit" value = "Login"  id = "loginid">
+
+				</form>
+				
 	</div>
-	<!-- include the bottom file -->
-	<?php
-	include 'bottom.html';
-	?>
-</div>
-</body>
-</html>
+			<!-- include bottom file-->
+			<?php
+			include 'bottom.html';
+			?>
+		
+	</body>
+	</html>

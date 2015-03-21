@@ -9,4 +9,11 @@ if(! $conn )
 {
 	die('Could not connect: ' . mysql_error());
 }
+function getArticle($uemail)
+{
+  $sql = 'SELECT * FROM article';
+  $result = mysql_query( $sql,$conn );
+  return $result;
+
+}
 ?>

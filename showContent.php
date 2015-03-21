@@ -1,21 +1,26 @@
 <?php
 
-/**$host="localhost";
-$user="root";
-$pwd="jitu";
 
-$conn =mysql_connect($host,$user,$pwd) or die("error in connection");
-mysql_select_db('project',$conn)or die('not get db');
-if(! $conn )
+/**
+*session restore
+*user can not access this page by typeing url directly
+*user must be login for access the this page
+*/
+session_start();
+$uemail = $_SESSION['email2'];
+$upass = $_SESSION['password2'];
+if( empty($uemail) || empty($upass))
 {
-	die('Could not connect: ' . mysql_error());
-}**/
+	header('location:index.php');
+}
+
+
 include 'mysql.php';
 session_start();
 // retriving data from article table where status ois public;
 $sql = 'SELECT * FROM contents where status = "public"';
 $result = mysql_query( $sql,$conn );
-
+echo '<a href="logout.php"><span style="text-decoration:none">Logout</span></a>';
 while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 {
 // display the article as teaser page

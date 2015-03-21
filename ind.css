@@ -1,7 +1,7 @@
 .formdes
 {
 	background: linear-gradient(to bottom, #6A60A7, #A091EC);
-	height: 600px;
+	height: 546px;
 	width: 100%;
 	float: left;
 	margin-top: -4px;
@@ -71,11 +71,34 @@
 	margin-top: 10px;
 	margin-left: 30%;
 	border: solid 5px #7D73B1;
+
 	
 	padding: 6px;
 	font-family: cambria;
 	font-size: 14px;
 	font: bold;
+}
+.radio
+{
+ 
+	margin-top: 10px;
+	margin-left: 30px;
+	padding: 6px;
+}
+.selectRadio
+{
+	margin-left: 404px;
+	font-size: 20px;
+	color: white;
+	font: bold;
+	text-shadow: 2px 2px #504683;
+}
+.statusText
+{
+	margin-left: 60px;
+	font-size: 18px;
+	color: white;
+	text-shadow: 2px 2px #504683;
 }
 
 .in
@@ -245,4 +268,24 @@ option
 	font: bold;
 
 }
-
+.logout
+{
+	text-decoration:none;
+	float:right;
+	color: #FACF1C;
+	margin-right: 10px;
+}
+.subheader
+{
+	height: 40px;
+	width: 100%;
+	background-color: black;
+}
+.subheader a
+{
+	margin-left: 20px;
+}
+.subheader  a:hover
+{
+	color: white;
+}

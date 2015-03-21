@@ -12,32 +12,35 @@ if( isset($_POST['submit'] ))
 	echo $email1 . "<br>";
 	echo $_POST['status'];
 
-	/**$host="localhost";
-	*$user="root";
-	*$pwd="jitu";
-	$conn =mysql_connect($host,$user,$pwd) or die("error in connection");
-	mysql_select_db('project',$conn)or die('not get db');
-	if(! $conn )
-	{
-		die('Could not connect: ' . mysql_error());
-	}
-	*/
-	//include mysql connection file
-	include 'mysql.php';
+/**
+*session restore
+*user can not access this page by typeing url directly
+*user must be login for access the this page
+*/
+session_start();
+$uemail = $_SESSION['email2'];
+$upass = $_SESSION['password2'];
+if( empty($uemail) || empty($upass))
+{
+	header('location:index.php');
+}
 
-	$sql = "INSERT INTO contents" . "( email,title,content_text,status )" . "values( '$email1','$title1','$news','$status1' )";
- 	$result = mysql_query( $sql,$conn );
-	if(! $result )
-	{
-			 die( 'Could not enter data: ' . mysql_error() );
-	}
+include 'mysql.php';
 
-	mysql_close( $conn );
-	header( "location:teacher.php" );
+$sql = "INSERT INTO contents" . "( email,title,content_text,status )" . "values( '$email1','$title1','$news','$status1' )";
+$result = mysql_query( $sql,$conn );
+if(! $result )
+{
+	die( 'Could not enter data: ' . mysql_error() );
+}
+
+mysql_close( $conn );
+header( "location:teacher.php" );
 
 }
 else
 {
 	echo "fail";
 }
+	
 ?>

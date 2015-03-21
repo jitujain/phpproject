@@ -26,16 +26,7 @@
 		$mail1=$_POST['mail1'];
 		$pass1=$_POST['pass'];
 		session_start();
-		/**$host="localhost";
-		$user="root";
-		$pwd="jitu";
-		$conn =mysql_connect($host,$user,$pwd) or die("error in connection");
-		mysql_select_db('project',$conn)or die('not get db');
-		if(! $conn )
-		{
-			die('Could not connect: ' . mysql_error());
-		}
-		**/
+		
 		//include the mysql connection file
 		include 'mysql.php';
 
@@ -61,13 +52,14 @@
             if( strcmp($utype, 'admin')==0)
             {
                 header( "location:admin.php" );
+
             }
             elseif( strcmp($utype, 'teacher')==0)
             { 
             	header( "location:teacher.php" );
             }
             else
-            {
+	            {
             	header( "location:student.php" );
             }
 			

@@ -1,3 +1,17 @@
+<?php
+/**
+*session restore
+*user can not access this page by typeing url directly
+*user must be login for access the this page
+*/
+session_start();
+$uemail = $_SESSION['email2'];
+$upass = $_SESSION['password2'];
+if( empty($uemail) || empty($upass))
+{
+	header('location:index.php');
+}
+?>
 <html>
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
@@ -24,31 +38,49 @@
 	?>
 	<!-- designing code-->
 	<div class = "formdes">
-		<?php
-		session_start();
-		echo "uname is" . $_SESSION['uname2'];
-		echo $_SESSION['uname2'];
-		?>
-		<div>
-			<a href = "#" > Article </a >
-				<a href = "content.php" > Content </a >
-				<a href = "showArticle.php" > show  Crticles </a>
-				<a href = "showContent.php" > show  Contents </a>
-				</div>
-				<p id = "formid"> <b>Please Create Your News Article Here</b> </p> 
-				<form  action = "teach.php" method = "POST">
-					<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
-					<input type = "text" name = "article" class = "articlebox" placeholder = "Enter Article"><br>
-					Private<input type = "radio" name = "status" value = "private">Public<input type = "radio" name = "status" value = "public"><br>
-					<input type = "submit" name = "submit" value = "Login"  id = "loginid">
-
-				</form>
-				
+		<?php session_start(); ?>
+		<div class="subheader">
+			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			<a href="logout.php"><span class="logout">Logout</span></a>
+			<a href = "content.php" >Create Content </a >
+				<a href = "showArticle.php" > Show  Articles </a>
+				<a href = "showContent.php" > Show  Contents </a>
 			</div>
-			<!-- include bottom file-->
-			<?php
-			include 'bottom.html';
+			<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
+			margin-right:auto; text-align:center;" id="cdiv">
+            <table border="1" align="center" >
+            <tr> 
+               <th>Title</th>
+               <th>Status</th> 
+               <th>Change Status</th>
+               <th>Remove</th>
+            </tr>
+			<?php 
+			$email = $_SESSION['email2'];
+			include 'mysql.php';
+			//$result = getArticle($_SESSION['email2']);
+			$sql = "SELECT * FROM article where email = '$email' ";
+			$result = mysql_query( $sql,$conn );
+
+			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
+			{   
+			
+				echo '<tr><td><b>' . $row['title'] . '</b></td>&nbsp;&nbsp';
+				echo '<td>&nbsp;&nbsp;&nbsp;' . $row['status'] . '</td>';
+				echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row['articleid'].'&status='.$row['status'].'  >Change</a></td>';
+				echo '<td><a href = removeArticle.php?aid='.$row['articleid'].' >Delete</a></td></tr>';	
+
+			}
 			?>
+			</table>
 		</div>
-	</body>
-	</html>
+
+
+	</div>
+	<!-- include bottom file-->
+	<?php
+	include 'bottom.html';
+	?>
+
+</body>
+</html>

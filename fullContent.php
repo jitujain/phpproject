@@ -1,3 +1,17 @@
+<?php
+/**
+*session restore
+*user can not access this page by typeing url directly
+*user must be login for access the this page
+*/
+session_start();
+$uemail = $_SESSION['email2'];
+$upass = $_SESSION['password2'];
+if( empty($uemail) || empty($upass))
+{
+	header('location:index.php');
+}
+?>
 <html>
 <head>
 	<title>full Content</title>
@@ -7,6 +21,7 @@
 </head>
 
 <body >
+<a href="logout.php"><span style="text-decoration:none">Logout</span></a>
 	<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
 	margin-right:auto; text-align:center;" id="cdiv">
 	

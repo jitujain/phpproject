@@ -1,3 +1,17 @@
+<?php
+/**
+*session restore
+*user can not access this page by typeing url directly
+*user must be login for access the this page
+*/
+session_start();
+$uemail = $_SESSION['email2'];
+$upass = $_SESSION['password2'];
+if( empty($uemail) || empty($upass))
+{
+	header('location:index.php');
+}
+?>
 <html>
 <head>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
@@ -20,11 +34,12 @@
 	<?php
 	include 'header.html';
 	?>
+
 	<div class = "formdes">
 
 		<!-- form description -->
 
-		<p id = "formid"><b>Please Complete your deatils</b></p> 
+		<p id = "formid"><b>Please Complete your deatils</b></p><a href="logout.php"><span style="text-decoration:none">Logout</span></a> 
 		
 		<form id = "checkvalue"   action= "register.php" method = "POST" >
 			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox" name = "email">	<br>
