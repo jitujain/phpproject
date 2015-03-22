@@ -12,16 +12,6 @@ if( isset($_POST['submit'] ))
 	echo $email1 . "<br>";
 	echo $_POST['status'];
 
-	/**$host="localhost";
-	*$user="root";
-	*$pwd="jitu";
-	$conn =mysql_connect($host,$user,$pwd) or die("error in connection");
-	mysql_select_db('project',$conn)or die('not get db');
-	if(! $conn )
-	{
-		die('Could not connect: ' . mysql_error());
-	}
-	*/
 	//include mysql connection file
 	include 'mysql.php';
 

@@ -1,16 +1,6 @@
 <?php
-/**
-*session restore
-*user can not access this page by typeing url directly
-*user must be login for access the this page
-*/
-session_start();
-$uemail = $_SESSION['email2'];
-$upass = $_SESSION['password2'];
-if( empty($uemail) || empty($upass))
-{
-	header('location:index.php');
-}
+  //manage the session
+  include 'session.php';
 ?>
 <html>
 <head>
@@ -36,17 +26,22 @@ if( empty($uemail) || empty($upass))
 	<?php
 	include 'header.html';
 	?>
+
 	<!-- designing code-->
 	<div class = "formdes">
+	<div class="subheader">
+			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			<a href="logout.php"><span class="logout">Logout</span></a>
+			
+			
 		<a href = "showArticle.php" > show  Articles </a>
 		<a href = "showContent.php" > show  Contents </a>
+		</div>
 	</div>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="logout.php"><span style="text-decoration:none">Logout</span></a>
+	
 	<!-- include bottom file-->
 	<?php
 	include 'bottom.html';
 	?>
-
 </body>
 </html>

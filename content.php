@@ -1,16 +1,6 @@
 <?php
-/**
-*session restore
-*user can not access this page by typeing url directly
-*user must be login for access the this page
-*/
-session_start();
-$uemail = $_SESSION['email2'];
-$upass = $_SESSION['password2'];
-if( empty($uemail) || empty($upass))
-{
-	header('location:index.php');
-}
+  //manage the session
+  include 'session.php';
 ?>
 <html>
 <head>
@@ -32,7 +22,7 @@ if( empty($uemail) || empty($upass))
 <body >
 	<!-- include hearder file -->
 	<?php
-	include 'header.html';
+	  include 'header.html';
 	?>
 
 	<div class = "formdes">
@@ -42,29 +32,30 @@ if( empty($uemail) || empty($upass))
 		//echo $_SESSION['uname2'];
 		?>
 		<div class="subheader">
-		<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
-		<a href="logout.php"><span class="logout">Logout</span></a>
-				<a href = "createArticle.php" >Create Article </a >
-				<a href = "showArticle.php" > Show  Articles </a>
-				<a href = "showContent.php" > Show  Contents </a>
+			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			<a href="logout.php"><span class="logout">Logout</span></a>
+			<a href = "teacher.php" > HOME </a>
+			<a href = "createArticle.php" >Create Article </a >
+			<a href = "showArticle.php" > Show  Articles </a>
+			<a href = "showContent.php" > Show  Contents </a>
 		</div>
-		
+
 			<!-- content page design -->
-		
+
 		<p id = "formid"> <b>Please Create Your Content Here</b> </p> 
 		<form  action = "addContent.php" method = "POST">
 			<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
 			<textarea name = "article" class = "articlebox" placeholder = "Enter Article" rows="3" cols="25"></textarea><br>
 			<span class = "selectRadio">Select Status Type</span>
-					<span class = "statusText">Private<span><input type = "radio" name = "status" value = "private" class="radio" checked="checked">
-					<span class = "statusText">Public</span><input type = "radio" name = "status" value = "public" class="radio"><br>
+			<span class = "statusText">Private<span><input type = "radio" name = "status" value = "private" class="radio" checked="checked">
+			<span class = "statusText">Public</span><input type = "radio" name = "status" value = "public" class="radio"><br>
 			<input type = "submit" name = "submit" value = "Login"  id = "loginid">
 		</form>
-	</div>
-	<!-- include the bottom file -->
+		</div>
+			<!-- include the bottom file -->
 	<?php
-	include 'bottom.html';
+	  include 'bottom.html';
 	?>
-</div>
+	</div>
 </body>
 </html>

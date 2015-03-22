@@ -1,16 +1,6 @@
 <?php
-/**
-*session restore
-*user can not access this page by typeing url directly
-*user must be login for access the this page
-*/
-session_start();
-$uemail = $_SESSION['email2'];
-$upass = $_SESSION['password2'];
-if( empty($uemail) || empty($upass))
-{
-	header('location:index.php');
-}
+  //manage the session
+include 'session.php';
 ?>
 <html>
 <head>
@@ -21,72 +11,42 @@ if( empty($uemail) || empty($upass))
 </head>
 
 <body >
-<a href="logout.php"><span style="text-decoration:none">Logout</span></a>
-	<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
-	margin-right:auto; text-align:center;" id="cdiv">
-	
 	<?php
-// get the id from url
-   	$aid=$_GET['aid'];
+	include 'header.html' ;
 
-// include mysql connection file
-   include 'mysql.php';
-
-// Retriving the value from article table
-	$sql = "SELECT * FROM article  where articleid='$aid' ";
-	$sql1 = "SELECT * FROM comments where aid='$aid' " ;
-	$result = mysql_query( $sql,$conn);
-	$result1 = mysql_query($sql1, $conn);
-	while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
-	{
-		echo '<b>' . $row['title'] . '</b>';
-		echo '<br>';
-		echo $row['art_text'];
-		
-	}
-	while( $row1 = mysql_fetch_array( $result1, MYSQL_ASSOC ))
-	{
-		
-		echo '<br>';	
-		echo '<div style="width:700px;height:50px;background-color:yellow">';
-		echo $row1['comment'];
-		echo $row1['uname'];
-		echo '</div>';
-		
-	}
-	mysql_close($conn);
+	//$aid = $_GET['aid'];
+	//echo $aid;
+	session_start();
+	$aid = $_SESSION['aid'];
+	//echo $aid;
 	?>
-	<!-- design of comment button  -->
-	<br>	
-	<form method="POST" >
-	<input type = "text" class="comment_box" name="comment"><br>
-	<div style = "width:700px;height:40px;background-color:#B6B6B6;" id="aa">
+	<div class="formdes">
+		<div class="subheader">
+			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			<a href="logout.php"><span class="logout">Logout</span></a>
+			
+		</div>
 
-		<input type = "submit" value = "Comment" style = "width:80px;height:36px;margin-top:2px;" >
+		<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
+		margin-right:auto; text-align:center;" id="cdiv">
+
+		<?php
+		include 'createComment.php';
+		?>
+		<!-- design of comment button  -->
+		<br>
+		<form method="POST" action="fullnew.php">
+			<input type = "text" class="comment_box" name="comment"><br>
+			<div style = "width:700px;height:40px;background-color:#B6B6B6;" id="aa">
+
+				<input type = "submit" value = "Comment" style = "width:80px;height:36px;margin-top:2px;" name="submit" >
+			</div>
+		</form>
 	</div>
-	</form>
 </div>
-</body>
 <?php 
-   if( isset($_POST['comment']))
-   {
-   	session_start();
-   	$comment = $_POST['comment'];
-   	include 'mysql.php';
-   	$uname = $_SESSION['uname2'];
-
-   
-
-	$sql = "INSERT INTO comments" . "( aid,uname,comment )" . "values( '$aid','$uname','$comment' )";
- 	$result = mysql_query( $sql,$conn );
- 	
-    header("refresh: 0;");
-
-	if(! $result )
-	{
-			 die( 'Could not enter data: ' . mysql_error() );
-	}
-
-   }
+include 'bottom.html';
 ?>
+</body>
+
 </html>

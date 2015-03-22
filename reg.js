@@ -58,12 +58,7 @@ $(document).ready(function(){
               return false;
             }
 
-            if(!uname.match("jitu") )
-            {
-             alert("username is wrong");
-             $("#uname").focus();
-             return false;
-           }
+            
            return true;
 
          });

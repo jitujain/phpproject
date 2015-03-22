@@ -10,4 +10,4 @@
 	$result = mysql_query( $sql,$conn);
     mysql_close($conn);
     header("location:teacher.php");
-	?>
+?>

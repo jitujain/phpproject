@@ -12,20 +12,15 @@ $flag = 0;
 *user can not access this page by typeing url directly
 *user must be login for access the this page
 */
-session_start();
-$uemail = $_SESSION['email2'];
-$upass = $_SESSION['password2'];
-if( empty($uemail) || empty($upass))
-{
-	header('location:index.php');
-}
 
+
+include 'session.php';
 include 'mysql.php';
 
 /**
 * It check wether this email is already registerd or not.
 */
-$flag = checkEmail($email);
+//$flag = checkEmail($email);
 
 if( empty($email) || empty($uname) || empty($pwd) || empty($fname) || empty($lname))
 {
@@ -52,6 +47,8 @@ elseif( $flag == 1 )
 }
 else
 {
+	$pwd = $_POST['pass'];
+
 	
 	$sql = "INSERT INTO register" . "( email,uname,pass,fname,lname,utype)" . "values( '$email','$uname','$pwd','$fname','$lname','$utype' )";
 	$result = mysql_query( $sql,$conn );
@@ -63,7 +60,8 @@ else
 	}
 	else
 	{
-		echo "success";
+		echo "success registerd";
+		echo '<a href="admin.php"> BACK</a>'; 
 	}
 
 	mysql_close( $conn );

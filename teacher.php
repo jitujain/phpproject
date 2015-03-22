@@ -1,16 +1,6 @@
 <?php
-/**
-*session restore
-*user can not access this page by typeing url directly
-*user must be login for access the this page
-*/
-session_start();
-$uemail = $_SESSION['email2'];
-$upass = $_SESSION['password2'];
-if( empty($uemail) || empty($upass))
-{
-	header('location:index.php');
-}
+  //manage the session
+  include 'session.php';
 ?>
 <html>
 <head>
@@ -43,9 +33,10 @@ if( empty($uemail) || empty($upass))
 			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			<a href="logout.php"><span class="logout">Logout</span></a>
 			<a href = "content.php" >Create Content </a >
-				<a href = "showArticle.php" > Show  Articles </a>
-				<a href = "showContent.php" > Show  Contents </a>
-			</div>
+			<a href = "createArticle.php" >Create Article </a >
+			<a href = "showArticle.php" > Show  Articles </a>
+			<a href = "showContent.php" > Show  Contents </a>
+		</div>
 			<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
 			margin-right:auto; text-align:center;" id="cdiv">
             <table border="1" align="center" >
@@ -74,13 +65,10 @@ if( empty($uemail) || empty($upass))
 			?>
 			</table>
 		</div>
-
-
-	</div>
+    </div>
 	<!-- include bottom file-->
 	<?php
 	include 'bottom.html';
 	?>
-
 </body>
 </html>
