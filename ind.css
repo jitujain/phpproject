@@ -375,10 +375,26 @@ option
 }
 .teachertable
 {
-	margin-left:60px;
+	margin-left:66px;
 
 	border-color: black;
 	border: 1px solid #7D73B1;
 	border-collapse: collapse;
 	text-align: center;
+}
+.sub
+{
+	height: 40px;
+	width: 40%;
+	background: linear-gradient(to bottom, #FACF1C, #E9A714);;
+	margin-left: 2px;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 0px;
+	font: bold;
+	font-size: 20px;
+	margin-bottom: 7px;
+	text-shadow: -0.5px 0.5px #FFFFFF;
+
+
 }

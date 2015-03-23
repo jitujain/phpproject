@@ -18,7 +18,7 @@
 		include 'mysql.php';
 		session_start();
 		// retriving data from article table where status ois public;
-		$sql = 'SELECT contentid , title , email , content_text , status , substring(content_text,1,30) as subtext FROM contents where status = "public"';
+		$sql = 'SELECT cid , title , uid , content_text , status , substring(content_text,1,30) as subtext FROM create_content where status = 0';
 		$result = mysql_query( $sql,$conn );
 		echo '<br><br>';
 		while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
@@ -30,10 +30,10 @@
 			echo '<br><br>';
 			echo $row['subtext'] . '...........';
 			echo '<br>';
-			echo '<a href = fullContent.php?aid='.$row['contentid'].'>';
+			echo '<a href = fullContent.php?aid='.$row['cid'].'>';
 			echo '<br><span style="margin-left:300px;">Click here to read more</span>';
 			echo '</a>';
-			echo '<span style="color:#FACF1C;align:right;">&nbsp;&nbsp;&nbsp; By-' . $row['email'] . '</span>';
+			echo '<span style="color:#FACF1C;align:right;">&nbsp;&nbsp;&nbsp; By-' . $_SESSION['email2'] . '</span>';
 			echo '</div>';
 			
 			echo '<br>';

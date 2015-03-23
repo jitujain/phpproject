@@ -4,6 +4,7 @@
 ?>
 <html>
 	<head>
+	<title>Admin</title>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src = "reg.js"></script>

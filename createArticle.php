@@ -4,6 +4,7 @@
 ?>
 <html>
 <head>
+    <title>create article</title>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src= "reg.js"></script>
@@ -36,7 +37,7 @@
 		<div class="subheader">
 			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			<a href="logout.php"><span class="logout">Logout</span></a>
-			<a href = "teacher.php" > HOME </a>
+			<a href = "teacher.php" > Home </a>
 			<a href = "content.php" >Create Content </a >
 			<a href = "showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>

@@ -4,6 +4,7 @@
 ?>
 <html>
 <head>
+     <title>Teacher</title>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src= "reg.js"></script>
@@ -48,19 +49,23 @@
                <th>Remove</th>
             </tr>
 			<?php 
-			$email = $_SESSION['email2'];
+			$uid = $_SESSION['uid'];
 			include 'mysql.php';
 			//$result = getArticle($_SESSION['email2']);
-			$sql = "SELECT * FROM article where email = '$email' ";
+			$sql = "SELECT * FROM create_article where uid = $uid ";
 			$result = mysql_query( $sql,$conn );
 
 			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
-			{   
-			
+			{ 
+				$status='private';
+                if($row['status']==0)
+                {
+                   $status = 'public';
+                }
 				echo '<tr><td>' . $row['title'] . '</td>&nbsp;&nbsp';
-				echo '<td>&nbsp;&nbsp;&nbsp;' . $row['status'] . '</td>';
-				echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row['articleid'].'&status='.$row['status'].'  >Change</a></td>';
-				echo '<td><a href = removeArticle.php?aid='.$row['articleid'].' >Delete</a></td></tr>';	
+				echo '<td>&nbsp;&nbsp;&nbsp;' . $status . '</td>';
+				echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row['aid'].'&status='.$row['status'].'  >Change</a></td>';
+				echo '<td><a href = removeArticle.php?aid='.$row['aid'].' >Delete</a></td></tr>';	
 
 			}
 			?>

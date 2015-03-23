@@ -31,7 +31,7 @@
 		<p id = "formloginid"> <b>Please Login From Here</b> </p> 
 		<form  action = "loginval.php" method = "POST" >
 			<input type = "text" name = "mail1" class = "textbox" placeholder = "Enter Email"><br>
-			<input type = "passward" name = "pass" class = "textbox" placeholder = "Enter password"><br>
+			<input type = "password" name = "pass" class = "textbox" placeholder = "Enter password"><br>
 			<input type = "submit" name = "submit" value = "Login"  id = "loginid">
 		</form>
    </div>

@@ -23,11 +23,12 @@
         *this values use later on next pages
         *this values maintain the session
         */        
-        $_SESSION['email2'] = $row['email'];
+        $_SESSION['uid'] = $row['uid'];
         $_SESSION['password2'] = $row['pass'];
         $_SESSION['utype2'] = $row['utype'];
         $utype = $row['utype'];
         $_SESSION['uname2'] = $row['uname'];
+        $_SESSION['email2'] = $row['email'];
       }
        
        /**
@@ -35,12 +36,12 @@
        *then forward the that page
        */
 
-      if( strcmp($utype, 'admin')==0)
+      if( strcmp($utype, 'Admin')==0)
       {
         header( "location:admin.php" );
 
       }
-      elseif( strcmp($utype, 'teacher')==0)
+      elseif( strcmp($utype, 'Teacher')==0)
       { 
         header( "location:teacher.php" );
       }

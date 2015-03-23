@@ -6,7 +6,12 @@ if( isset($_POST['submit'] ))
 	$news = $_POST['article'];
 	$status1 = $_POST['status'];
 	session_start();
-	$email1 = $_SESSION['email2'];
+	$uid = $_SESSION['uid'];
+	$status=1;
+	if( strcmp($status1,'public'))
+	{
+        $status=0;
+	}
 	
 	if( empty($title1) || empty($news) || empty($status1))
 	{
@@ -19,7 +24,7 @@ if( isset($_POST['submit'] ))
 		//include mysql connection file
 	include 'mysql.php';
 
-	$sql = "INSERT INTO article" . "( email,title,art_text,status )" . "values( '$email1','$title1','$news','$status1' )";
+	$sql = "INSERT INTO create_article" . "( uid,title,article_text,status )" . "values( '$uid','$title1','$news','$status' )";
  	$result = mysql_query( $sql,$conn );
 	if(! $result )
 	{

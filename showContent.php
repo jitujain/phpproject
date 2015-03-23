@@ -4,7 +4,7 @@
 ?>
 <html>
 <head>
-	<title>showArticle page</title>
+	<title>showContent page</title>
 	<link rel = "stylesheet" type = "text/css" href = "ind.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src = "reg.js"></script>
@@ -34,9 +34,7 @@
 	<div class="subheader">
 		<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 		<a href="logout.php"><span class="logout">Logout</span></a>
-		<a href = "teacher.php" > HOME </a>
-		<a href = "content.php" >Create Content </a >
-		<a href = "createArticle.php" >Create Article </a >
+		<a href = "redirect.php?utype=<?php echo $_SESSION['utype2'] ?>" > Home </a>
 		<a href = "showArticle.php" > Show  Article </a>
 	</div>
 		<?php

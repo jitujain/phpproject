@@ -21,12 +21,10 @@ include 'session.php';
 	//echo $aid;
 	?>
 	<div class="formdes" id="page">
-		<div class="subheader">
-			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
-			<a href = "teacher.php" > HOME </a>
-			<a href = "content.php" >Create Content </a >
-			<a href = "showContent.php" > Show  Contents </a>
-			<a href="logout.php"><span class="logout">Logout</span></a>
+		<div class="subheader">	
+			<?php
+			  include 'selectSubHeader.php'; 
+			?>
 			
 		</div>
 
@@ -40,9 +38,9 @@ include 'session.php';
 		<br>
 		<form method="POST" action="fullnew.php">
 			<input type = "text" class="comment_box" name="comment"><br>
-			<div style = "width:700px;height:40px;background-color:#B6B6B6;" id="aa">
+			<div style = "width:700px;height:40px;background-color:#9281D6;" id="aa">
 
-				<input type = "submit" value = "Comment" style = "width:80px;height:36px;margin-top:2px;" name="submit" >
+				<input type = "submit" value = "Comment" class="sub" name="submit" >
 			</div>
 		</form>
 	</div>

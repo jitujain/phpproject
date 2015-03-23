@@ -7,7 +7,7 @@
 		include 'mysql.php';
     //echo '<table>';
     // Retriving the value from article table
-	$sql = "SELECT * FROM article  where articleid='$aid' ";
+	$sql = "SELECT * FROM create_article  where aid='$aid' ";
 	$sql1 = "SELECT * FROM comments where aid='$aid' " ;
 	$result = mysql_query( $sql,$conn);
 	$result1 = mysql_query($sql1, $conn);
@@ -17,7 +17,7 @@
 		
 		echo '<b><br>' . $row['title'] . '</b>';
 		echo '<br><br>';
-		echo  $row['art_text'] ; 
+		echo  $row['article_text'] ; 
 
 	}
 	while( $row1 = mysql_fetch_array( $result1, MYSQL_ASSOC ))

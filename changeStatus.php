@@ -8,10 +8,10 @@ $status = $_GET['status'];
 *if status is equal to public then change it to private or vice-versa
 */
 
-if( strcmp( $status, "public") == 0)
+if( $status == 0)
 {
 	include 'mysql.php';
-	$sql = "update  article set status='private' where articleid='$aid' ";
+	$sql = "update  create_article set status=1 where aid='$aid' ";
 	$result = mysql_query( $sql,$conn);
 	mysql_close($conn);
 	header("location:teacher.php");
@@ -20,7 +20,7 @@ if( strcmp( $status, "public") == 0)
 else
 {
 	include 'mysql.php';
-	$sql = "update  article set status='public' where articleid='$aid' ";
+	$sql = "update  create_article set status=0 where aid='$aid' ";
 	$result = mysql_query( $sql,$conn);
 	mysql_close($conn);
 	header( "location:teacher.php");

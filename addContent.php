@@ -6,7 +6,12 @@
 		$news = $_POST['content'];
 		$status1 = $_POST['status'];
 		session_start();
-		$email1 = $_SESSION['email2'];
+		$uid = $_SESSION['uid'];
+		$status=1;
+		if( strcmp($status1,'public'))
+		{
+            $status=0;
+		}
 		
 
 	    include 'session.php' ;
@@ -24,8 +29,9 @@
 		  *content create by teacher 
 		  *data insert into database table
 		  */
+		  echo $uid;
 		  include 'mysql.php';
-		  $sql = "INSERT INTO contents" . "( email,title,content_text,status )" . "values( '$email1','$title1','$news','$status1' )";
+		  $sql = "INSERT INTO create_content" . "( uid,title,content_text,status )" . "values( '$uid','$title1','$news','$status' )";
 		  $result = mysql_query( $sql,$conn );
 		  if(! $result )
 		  {

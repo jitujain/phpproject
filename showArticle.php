@@ -27,13 +27,14 @@
 	<!--login form -->
 	<div class = "formdes" id="page">
 		<?php session_start(); ?>
+		<!-- 
+         *Subheader contain the User name and link of forward pages
+         *
+		-->
 		<div class="subheader">
-			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
-			<a href = "teacher.php" > HOME </a>
-		    <a href = "content.php" >Create Content </a >
-			<a href = "createArticle.php" >Create Article </a >
-			<a href = "showContent.php" > Show  Contents </a>
-			<a href="logout.php"><span class="logout">Logout</span></a>
+			<?php
+			  include 'selectSubHeader.php'; 
+			?>
 		</div>
         <?php
             include 'fetchArticle.php';

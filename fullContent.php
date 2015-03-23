@@ -34,7 +34,7 @@
 		include 'mysql.php';
 
         // Retriving the value from article table
-		$sql = "SELECT * FROM contents  where contentid='$aid' ";
+		$sql = "SELECT * FROM create_content  where cid='$aid' ";
 		$result = mysql_query( $sql,$conn);
 		while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 		{
@@ -47,7 +47,7 @@
 		?>
 		<!-- design of bottom border  -->
 		<br>
-		<div style = "width:700px;height:40px;background-color:#B6B6B6;margin-top:20px;" id="aa"></div>
+		<div style = "width:700px;height:40px;background-color:#9281D6;margin-top:20px;" id="aa"></div>
 	    </div>
     </div>
     <?php 
