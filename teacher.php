@@ -30,16 +30,17 @@
 	<div class = "formdes" id="page">
 		<?php session_start(); ?>
 		<div class="subheader">
-			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			
 			<a href="logout.php"><span class="logout">Logout</span></a>
 			<a href = "content.php" >Create Content </a >
 			<a href = "createArticle.php" >Create Article </a >
 			<a href = "showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>
+				
 		</div>
-			<div style = "width:515px; height:auto; background-color:#FFF1A8; margin-left: auto;
-			margin-right:auto; text-align:center;" id="cdiv">
-            <table border="1" align="center" >
+			<div class="centertextback" style="width:600px;" id="cdiv">
+            <table border="1" align="center" class ="teachertable">
             <tr> 
                <th>Title</th>
                <th>Status</th> 
@@ -56,7 +57,7 @@
 			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 			{   
 			
-				echo '<tr><td><b>' . $row['title'] . '</b></td>&nbsp;&nbsp';
+				echo '<tr><td>' . $row['title'] . '</td>&nbsp;&nbsp';
 				echo '<td>&nbsp;&nbsp;&nbsp;' . $row['status'] . '</td>';
 				echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row['articleid'].'&status='.$row['status'].'  >Change</a></td>';
 				echo '<td><a href = removeArticle.php?aid='.$row['articleid'].' >Delete</a></td></tr>';	

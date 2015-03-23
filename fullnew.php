@@ -22,7 +22,7 @@ include 'session.php';
 	?>
 	<div class="formdes" id="page">
 		<div class="subheader">
-			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			<a href = "teacher.php" > HOME </a>
 			<a href = "content.php" >Create Content </a >
 			<a href = "showContent.php" > Show  Contents </a>
@@ -30,8 +30,8 @@ include 'session.php';
 			
 		</div>
 
-		<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
-		margin-right:auto; text-align:center;" id="cdiv">
+		<div style = "width:700px; height:auto; background-color:#6D61A9; margin-left: auto;
+		margin-right:auto; text-align:center;margin-top:50px;" id="cdiv">
 
 		<?php
 		include 'createComment.php';

@@ -60,6 +60,10 @@ width:100%;
 	float: left;
 	margin-top: -4px;
 }
+.formdes p
+{
+	margin-top: 50px;
+}
 .inner
 {
 	background: linear-gradient(120deg, #6A60A7, #A091EC);
@@ -263,6 +267,7 @@ width:100%;
 }
 a{
 	text-decoration: none;
+	color: #FFFFFF;
 
 }
 .submittext a
@@ -331,15 +336,49 @@ option
 }
 .subheader
 {
-	height: 40px;
+	height: 30px;
 	width: 100%;
 	background-color: black;
+	padding-top: 12px;
+
 }
 .subheader a
 {
-	margin-left: 20px;
-}
+	margin-left: 80px;
+	color: #FFFFFF;
+}	
 .subheader  a:hover
 {
-	color: white;
+	color: #FACF1C;
+}
+.subheaderwc
+{
+	color:#FACF1C;
+	padding-left:64px;
+}
+.centertextback
+{
+	width:700px; 
+	height:auto; 
+	background-color:#6D61A9; 
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:20px; 
+	text-align:center;
+	box-shadow: -2px -2px #6D61A9;
+
+}
+.centertextback a
+{
+	color: #FFFFFF;
+
+}
+.teachertable
+{
+	margin-left:60px;
+
+	border-color: black;
+	border: 1px solid #7D73B1;
+	border-collapse: collapse;
+	text-align: center;
 }

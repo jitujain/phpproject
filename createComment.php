@@ -11,11 +11,12 @@
 	$sql1 = "SELECT * FROM comments where aid='$aid' " ;
 	$result = mysql_query( $sql,$conn);
 	$result1 = mysql_query($sql1, $conn);
+	   echo '<br>';
 	while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 	{
-		//echo '<tr>'
-		echo '<b>' . $row['title'] . '</b>';
-		echo '</br>';
+		
+		echo '<b><br>' . $row['title'] . '</b>';
+		echo '<br><br>';
 		echo  $row['art_text'] ; 
 
 	}
@@ -23,8 +24,8 @@
 	{
 
 		echo '<br>';	
-		echo '<div style="width:700px;height:50px;background-color:#E6E6E6;margin-top:20px;">';
-		echo $row1['comment'];
+		echo '<div style="width:700px;height:60px;background-color:#9286D2;margin-top:20px;">';
+		echo '<br>' . $row1['comment'];
 		echo '<br><span style="color:#FACF1C;float:right;">Comment By-'. $row1['uname'] . '</span>';
 		echo '</div>';
 
