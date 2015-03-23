@@ -27,7 +27,7 @@
 	include 'header.html';
 	?>
 	<!-- designing code-->
-	<div class = "formdes">
+	<div class = "formdes" id="page">
 		<?php session_start(); ?>
 		<div class="subheader">
 			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
@@ -37,7 +37,7 @@
 			<a href = "showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>
 		</div>
-			<div style = "width:700px; height:auto; background-color:#FFF1A8; margin-left: auto;
+			<div style = "width:515px; height:auto; background-color:#FFF1A8; margin-left: auto;
 			margin-right:auto; text-align:center;" id="cdiv">
             <table border="1" align="center" >
             <tr> 

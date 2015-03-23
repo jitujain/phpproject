@@ -20,9 +20,12 @@ include 'session.php';
 	$aid = $_SESSION['aid'];
 	//echo $aid;
 	?>
-	<div class="formdes">
+	<div class="formdes" id="page">
 		<div class="subheader">
 			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+			<a href = "teacher.php" > HOME </a>
+			<a href = "content.php" >Create Content </a >
+			<a href = "showContent.php" > Show  Contents </a>
 			<a href="logout.php"><span class="logout">Logout</span></a>
 			
 		</div>

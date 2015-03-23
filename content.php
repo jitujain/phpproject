@@ -25,13 +25,13 @@
 	  include 'header.html';
 	?>
 
-	<div class = "formdes">
+	<div class = "formdes" id="page">
 		<?php
 		session_start();
 		//echo "uname is" . $_SESSION['uname2'];
 		//echo $_SESSION['uname2'];
 		?>
-		<div class="subheader">
+		<div class="subheader" >
 			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			<a href="logout.php"><span class="logout">Logout</span></a>
 			<a href = "teacher.php" > HOME </a>
@@ -45,7 +45,7 @@
 		<p id = "formid"> <b>Please Create Your Content Here</b> </p> 
 		<form  action = "addContent.php" method = "POST">
 			<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
-			<textarea name = "article" class = "articlebox" placeholder = "Enter Article" rows="3" cols="25"></textarea><br>
+			<textarea name = "content" class = "articlebox" placeholder = "Enter Content" rows="3" cols="25"></textarea><br>
 			<span class = "selectRadio">Select Status Type</span>
 			<span class = "statusText">Private<span><input type = "radio" name = "status" value = "private" class="radio" checked="checked">
 			<span class = "statusText">Public</span><input type = "radio" name = "status" value = "public" class="radio"><br>

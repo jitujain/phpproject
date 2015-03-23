@@ -29,7 +29,7 @@
 	include 'header.html';
 	?>
 	<!--login form -->
-	<div class = "formdes">
+	<div class = "formdes" id="page">
 	<?php session_start(); ?>
 	<div class="subheader">
 		<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>

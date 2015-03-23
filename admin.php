@@ -25,7 +25,7 @@
 		  include 'header.html';
 		?>
         <!-- this subheader show the some link to forward next page and show logout button-->
-		<div class = "formdes">
+		<div class = "formdes" id="page">
 			<div class="subheader">
 			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			<a href="logout.php"><span class="logout">Logout</span></a>
@@ -44,9 +44,9 @@
 			<input type = "text"     placeholder = "Last name" class = "in1"  id = "lname" name = "lname"><br>
 			<select class = "textbox" id = "utype" name = "utype">
 			<option><span style = "font-family: cambria;">Select UserType</span></option>
-			<option><span style = "font-family: cambria;">Admin</span></option>
-			<option><span style = "font-family: cambria;">Student</span></option>
-			<option><span style = "font-family: cambria;">Teacher</span></option>
+			<option><span style = "font-family: cambria;">admin</span></option>
+			<option><span style = "font-family: cambria;">student</span></option>
+			<option><span style = "font-family: cambria;">teacher</span></option>
 			</select>
 			<input type = "checkbox" class = "checkboxid1">  <span id = "checkboxid"> keep me logged when using this computer </span><br>
 			<input type = "checkbox" class = "checkboxid1" > <span id = "checkboxid"> Email me a weekly newslatter </span>

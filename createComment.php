@@ -36,24 +36,29 @@
   if( isset($_POST['comment']))
   {
 	$comment = $_POST['comment'];
-	//include 'mysql.php';
 	$uname = $_SESSION['uname2'];
 	unset($_POST['comment']);
 
-
-
-	$sql = "INSERT INTO comments" . "( aid,uname,comment )" . "values( '$aid','$uname','$comment' )";
-	$result = mysql_query( $sql,$conn );
-
-	//header("refresh: 1;");
-
-
-	if(! $result )
+	if( empty($comment)) 
 	{
-		die( 'Could not enter data: ' . mysql_error() );
-	}
-	header("location:fullnew.php");
+		echo "please provide the comment";
+		echo '<a href="fullnew.php"> BACK</a>'; 
 
+	}
+	else
+	{
+		$sql = "INSERT INTO comments" . "( aid,uname,comment )" . "values( '$aid','$uname','$comment' )";
+		$result = mysql_query( $sql,$conn );
+
+		//header("refresh: 1;");
+
+
+		if(! $result )
+		{
+			die( 'Could not enter data: ' . mysql_error() );
+		}
+		header("location:fullnew.php");
+    }
 }
 
 	mysql_close($conn);

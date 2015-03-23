@@ -27,7 +27,7 @@
 	  include 'header.html';
 	?>
 	<!-- designing code-->
-	<div class = "formdes">
+	<div class = "formdes" id="page">
 		<?php
 		session_start();
 		//echo "uname is" . $_SESSION['uname2'];
@@ -43,7 +43,7 @@
 		</div>
 			<p id = "formid"> <b>Please Create Your News Article Here</b> </p> 
             <!-- design code for create article page-->
-			<form  action = "teach.php" method = "POST">
+			<form  action = "saveArticle.php" method = "POST">
 				<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
 				<textarea name = "article" class = "articlebox" placeholder = "Enter Article" rows="3" cols="25"></textarea><br>
 				<span class = "selectRadio">Select Status Type</span>

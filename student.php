@@ -28,7 +28,7 @@
 	?>
 
 	<!-- designing code-->
-	<div class = "formdes">
+	<div class = "formdes" id="page">
 	<div class="subheader">
 			<span style="color:#FACF1C;">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			<a href="logout.php"><span class="logout">Logout</span></a>
