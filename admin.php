@@ -35,7 +35,7 @@
 
 			<!-- form description -->
 
-			<p id = "formid"><b>Please Complete your deatils</b></p>
+			<p id = "formid"><b>Please Create New  Account</b></p>
 
 			<form id = "checkvalue"   action= "register.php" method = "POST" >
 			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox" name = "email">	<br>
@@ -52,6 +52,13 @@
 			<input type = "checkbox" class = "checkboxid1">  <span id = "checkboxid"> keep me logged when using this computer </span><br>
 			<input type = "checkbox" class = "checkboxid1" > <span id = "checkboxid"> Email me a weekly newslatter </span>
 			<input type = "checkbox" class = "checkboxid" > <span id = "checkboxid"> Email me a daily newslatter </span>
+			<?php 
+				  echo '<div class = "loginerror">';
+				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank.", "email" => "Email already used"); 
+				  if ($_GET["loginFailed"]) 
+				  echo $reasons[$_GET["reason"]];
+				  echo '</div>'; 
+			?>	
 			<!-- code of the submit button and that div-->
 			<div class = "submit">
 			<input type = "submit" value = "Complete Sign-up" id = "sub" >

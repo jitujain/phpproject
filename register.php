@@ -24,25 +24,18 @@ $flag = checkEmail($email);
 
 if( empty($email) || empty($uname) || empty($pwd) || empty($fname) || empty($lname))
 {
-	echo 'ohhh registration failed';
-	echo '<a href="admin.php"> BACK</a>'; 
+	die(header("location:admin.php?loginFailed=true&reason=password")); 
 
 }
 elseif( $utype == 'Select UserType'  )
 {
 
-    	//echo "<script type='text/javascript'>alert('$message');</script>";	
-
-    	 //header( "location:admin.php" );
-	echo 'select user type';
-	echo '<a href="admin.php"> BACK</a>';
-       // echo '<a href="admin.php"> BACK</a>'; 
+   die(header("location:admin.php?loginFailed=true&reason=password")); 
 
 }
 elseif( $flag == 1 )
 {
-	echo 'email already used';
-	echo '<a href="admin.php"> BACK</a>'; 
+	die(header("location:admin.php?loginFailed=true&reason=email")); 
 
 }
 else

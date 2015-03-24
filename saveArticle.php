@@ -15,8 +15,7 @@ if( isset($_POST['submit'] ))
 	
 	if( empty($title1) || empty($news) || empty($status1))
 	{
-		echo "please provide all the field";
-		echo '<a href="createArticle.php"> BACK</a>'; 
+		die(header("location:createArticle.php?loginFailed=true&reason=password"));
 
 	}
 	else

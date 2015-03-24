@@ -50,6 +50,13 @@
 			<span class = "selectRadio">Select Status Type</span>
 			<span class = "statusText">Private<span><input type = "radio" name = "status" value = "private" class="radio" checked="checked">
 			<span class = "statusText">Public</span><input type = "radio" name = "status" value = "public" class="radio"><br>
+			<?php 
+				  echo '<div class = "loginerror">';
+				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank."); 
+				  if ($_GET["loginFailed"]) 
+				  echo $reasons[$_GET["reason"]];
+				  echo '</div>'; 
+			?>
 			<input type = "submit" name = "submit" value = "Login"  id = "loginid">
 		</form>
 		</div>

@@ -32,6 +32,14 @@
 		<form  action = "loginval.php" method = "POST" >
 			<input type = "text" name = "mail1" class = "textbox" placeholder = "Enter Email"><br>
 			<input type = "password" name = "pass" class = "textbox" placeholder = "Enter password"><br>
+			<?php 
+			  echo '<div class = "loginerror">';
+			  echo '<br>';
+			  $reasons = array("password" => "Wrong Username or Password", "blank" => "You have left one or more fields blank."); 
+			  if ($_GET["loginFailed"]) 
+			  echo $reasons[$_GET["reason"]];
+			  echo '</div>'; 
+			?>			
 			<input type = "submit" name = "submit" value = "Login"  id = "loginid">
 		</form>
    </div>

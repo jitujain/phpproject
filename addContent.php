@@ -16,9 +16,12 @@
 
 		if( empty($title1) || empty($news) || empty($status1))
 		{
-		  echo "please provide all the field";
-		  echo '<a href="content.php"> BACK</a>'; 
-
+		  /**
+		  *If any one field are empty then
+		  *return back to previous page
+		  *print the error
+		  */
+		  die(header("location:content.php?loginFailed=true&reason=password")); 
 		}
 		else
 		{

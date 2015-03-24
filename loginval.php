@@ -54,7 +54,8 @@
     }
     else
     {
-      echo "please provide the right username and password";
+      //echo "please provide the right username and password";
+      die(header("location:index.php?loginFailed=true&reason=password"));
     }
 
     mysql_close($conn);
