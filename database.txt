@@ -1,0 +1,55 @@
+Database structure
+
+database name : project
+
+
+1. register table
+   it is store the information of every new user 
+
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| email | varchar(30) | NO   | PRI | NULL    |                |
+| uname | varchar(50) | YES  |     | NULL    |                |
+| pass  | varchar(50) | YES  |     | NULL    |                |
+| fname | varchar(30) | YES  |     | NULL    |                |
+| lname | varchar(30) | YES  |     | NULL    |                |
+| utype | varchar(20) | YES  |     | NULL    |                |
+| uid   | int(3)      | NO   | UNI | NULL    | auto_increment |
++-------+-------------+------+-----+---------+----------------+
+
+
+2. create_article table.
+   it contain the article text which create by teacher
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| aid          | int(3)       | NO   | PRI | NULL    | auto_increment |
+| uid          | int(3)       | YES  |     | NULL    |                |
+| title        | varchar(255) | YES  |     | NULL    |                |
+| article_text | blob         | YES  |     | NULL    |                |
+| status       | int(1)       | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+
+3.create_content table.
+  it contain the teaching content which create by teacher
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| cid          | int(3)       | NO   | PRI | NULL    | auto_increment |
+| uid          | int(3)       | YES  |     | NULL    |                |
+| title        | varchar(255) | YES  |     | NULL    |                |
+| content_text | blob         | YES  |     | NULL    |                |
+| status       | int(1)       | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+
+4.comments table
+  it contain the comments which create on article by teacher and student both
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| aid     | int(11)      | YES  |     | NULL    |                |
+| uname   | varchar(30)  | YES  |     | NULL    |                |
+| comment | varchar(255) | YES  |     | NULL    |                |
+| cid     | int(3)       | NO   | PRI | NULL    | auto_increment |
++---------+--------------+------+-----+---------+----------------+
