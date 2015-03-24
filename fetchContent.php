@@ -23,6 +23,7 @@
 		echo '<br><br>';
 		while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 		{
+			$Name = getName($row['uid']);
 		// display the article as teaser page
 
 			echo  '<div class="centertextback" id="cdiv">';
@@ -33,11 +34,23 @@
 			echo '<a href = fullContent.php?aid='.$row['cid'].'>';
 			echo '<br><span style="margin-left:300px;">Click here to read more</span>';
 			echo '</a>';
-			echo '<span style="color:#FACF1C;align:right;">&nbsp;&nbsp;&nbsp; By-' . $_SESSION['email2'] . '</span>';
+			echo '<span style="color:#FACF1C;align:right;">&nbsp;&nbsp;&nbsp; By-' . $Name . '</span>';
 			echo '</div>';
 			
 			echo '<br>';
 		}
 
 	}
+	    function getName($uid)
+		{
+			$Name;
+			include 'mysql.php' ;
+			$sql = "Select uname from register where uid ='$uid'";
+			$result = mysql_query( $sql,$conn );
+			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
+			{
+               $Name =$row['uname'];
+		    }
+		    return $Name;
+		}
 ?>

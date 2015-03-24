@@ -43,7 +43,7 @@ else
 	$pwd = $_POST['pass'];
 
 	
-	$sql = "INSERT INTO register" . "( email,uname,pass,fname,lname,utype)" . "values( '$email','$uname','$pwd','$fname','$lname','$utype' )";
+	$sql = "INSERT INTO register" . "( email,uname,pass,fname,lname,utype)" . "values( '$email','$uname',md5('" . $pwd . "'),'$fname','$lname','$utype' )";
 	$result = mysql_query( $sql,$conn );
 	if(! $result )
 	{
@@ -53,8 +53,7 @@ else
 	}
 	else
 	{
-		echo "success registerd";
-		echo '<a href="admin.php"> BACK</a>'; 
+		die(header("location:admin.php?loginFailed=true&reason=success"));  
 	}
 
 	mysql_close( $conn );

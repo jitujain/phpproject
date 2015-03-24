@@ -21,11 +21,11 @@ if( isset($aid))
 if( isset($utype))
 {
  
-	if( !strcmp($utype,"Student"))
+	if( !strcmp($utype,"student"))
 	{
 		header("location:student.php");
 	}
-	if( !strcmp($utype,"Teacher"))
+	if( !strcmp($utype,"teacher"))
 	{
 		header("location:teacher.php");
 	}

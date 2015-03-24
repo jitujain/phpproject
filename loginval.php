@@ -8,7 +8,7 @@
     //include the mysql connection file
     include 'mysql.php';
 
-    $sql = "SELECT * FROM register where email = '$mail1' and pass = '$pass1'";
+    $sql = "SELECT * FROM register where email = '$mail1' and pass = md5('" . $pass1 . "')";
 
     $result = mysql_query( $sql,$conn );
     $count =  mysql_num_rows( $result );
@@ -36,12 +36,12 @@
        *then forward the that page
        */
 
-      if( strcmp($utype, 'Admin')==0)
+      if( strcmp($utype, 'admin')==0)
       {
         header( "location:admin.php" );
 
       }
-      elseif( strcmp($utype, 'Teacher')==0)
+      elseif( strcmp($utype, 'teacher')==0)
       { 
         header( "location:teacher.php" );
       }

@@ -17,7 +17,7 @@
 		{
 
 			include 'mysql.php'; 
-			
+			$Name = getName($uid);
 			
 		// retriving data from article table where status ois public;
 			$sql = "SELECT aid , title , uid , article_text , status , substring(article_text,1,90) as subtext FROM create_article where status = 0 OR uid = '$uid' ";
@@ -25,6 +25,7 @@
 			echo '<br><br>';
 			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 			{
+				$Name = getName($row['uid']);
 		// display the article as teaser page
 				echo  '<div class="centertextback"  id="cdiv">';
                 echo '<br>';
@@ -35,17 +36,22 @@
 				echo '<a href = redirect.php?aid='.$row['aid'].'>';
 				echo '<span style="margin-left:250px;">Click here to read more</span>';
 				echo '</a>';
-				echo '<span style="color:#FACF1C;">&nbsp;&nbsp;&nbsp; By-' . $_SESSION['email2'] . '</span><br>';
+				echo '<span style="color:#FACF1C;">&nbsp;&nbsp;&nbsp; By-' . $Name . '</span><br>';
 				echo '</div>';
 				echo '<br>';
 			}
 
 		}
-		/**
-		*SELECT a.article_text, b.article_text
-*FROM create_article a, create_article b
-*WHERE a.status =0
-*AND b.uid =3
-*LIMIT 0 , 30
-		**/
+		function getName($uid)
+		{
+			$Name;
+			include 'mysql.php' ;
+			$sql = "Select uname from register where uid ='$uid'";
+			$result = mysql_query( $sql,$conn );
+			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
+			{
+               $Name =$row['uname'];
+		    }
+		    return $Name;
+		}
 	?>

@@ -54,7 +54,7 @@
 			<input type = "checkbox" class = "checkboxid" > <span id = "checkboxid"> Email me a daily newslatter </span>
 			<?php 
 				  echo '<div class = "loginerror">';
-				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank.", "email" => "Email already used"); 
+				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank.", "email" => "Email already used" , "success" => "Successfully Registered"); 
 				  if ($_GET["loginFailed"]) 
 				  echo $reasons[$_GET["reason"]];
 				  echo '</div>'; 
