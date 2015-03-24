@@ -8,6 +8,7 @@
 		session_start();
 		$uemail= $_SESSION['email2'];
 		$upass = $_SESSION['password2'];
+		$uid =  $_SESSION['uid'];
 		if( empty($uemail) || empty($upass))
 		{
 			header('location:index.php');
@@ -15,10 +16,11 @@
 		else
 		{
 
-			include 'mysql.php';
+			include 'mysql.php'; 
+			
 			
 		// retriving data from article table where status ois public;
-			$sql = 'SELECT aid , title , uid , article_text , status , substring(article_text,1,90) as subtext FROM create_article where status = 0';
+			$sql = "SELECT aid , title , uid , article_text , status , substring(article_text,1,90) as subtext FROM create_article where status = 0 OR uid = '$uid' ";
 			$result = mysql_query( $sql,$conn );
 			echo '<br><br>';
 			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
@@ -39,4 +41,11 @@
 			}
 
 		}
+		/**
+		*SELECT a.article_text, b.article_text
+*FROM create_article a, create_article b
+*WHERE a.status =0
+*AND b.uid =3
+*LIMIT 0 , 30
+		**/
 	?>

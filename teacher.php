@@ -41,33 +41,61 @@
 				
 		</div>
 			<div class="centertextback" style="width:600px;" id="cdiv">
+			<p id = "formid"> <b>Your News Article And Teaching Content</b> </p> 
             <table border="1" align="center" class ="teachertable">
             <tr> 
                <th>Title</th>
                <th>Status</th> 
+               <th>Text Type</th>
                <th>Change Status</th>
                <th>Remove</th>
             </tr>
 			<?php 
 			$uid = $_SESSION['uid'];
 			include 'mysql.php';
+			$count =0;
 			//$result = getArticle($_SESSION['email2']);
 			$sql = "SELECT * FROM create_article where uid = $uid ";
+			$sql1 = "SELECT * FROM create_content where uid = $uid ";
 			$result = mysql_query( $sql,$conn );
-
-			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
-			{ 
-				$status='private';
-                if($row['status']==0)
-                {
-                   $status = 'public';
-                }
-				echo '<tr><td>' . $row['title'] . '</td>&nbsp;&nbsp';
-				echo '<td>&nbsp;&nbsp;&nbsp;' . $status . '</td>';
-				echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row['aid'].'&status='.$row['status'].'  >Change</a></td>';
-				echo '<td><a href = removeArticle.php?aid='.$row['aid'].' >Delete</a></td></tr>';	
-
+			$count =  mysql_num_rows( $result );
+			$result1 = mysql_query( $sql1,$conn );
+			$count1 =  mysql_num_rows( $result1 );
+			if( $count == 0 && $count1 == 0)
+			{
+				header("location:createArticle.php");
 			}
+			else
+			{
+				while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
+				{ 
+					$status='private';
+	                if($row['status']==0)
+	                {
+	                   $status = 'public';
+	                }
+					echo '<tr><td>' . $row['title'] . '</td>&nbsp;&nbsp';
+					echo '<td>&nbsp;&nbsp;&nbsp;' . $status . '</td>';
+					echo '<td>' . "Article" . '</td>';
+					echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row['aid'].'&status='.$row['status'].'&type='. "article" .'  >Change</a></td>';
+					echo '<td><a href = removeArticle.php?aid='.$row['aid'].' >Delete</a></td></tr>';	
+
+				}
+				while( $row1 = mysql_fetch_array( $result1, MYSQL_ASSOC ))
+				{ 
+					$status='private';
+	                if($row1['status']==0)
+	                {
+	                   $status = 'public';
+	                }
+					echo '<tr><td>' . $row1['title'] . '</td>&nbsp;&nbsp';
+					echo '<td>&nbsp;&nbsp;&nbsp;' . $status . '</td>';
+					echo '<td>' . "Content" . '</td>';
+					echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row1['cid'].'&status='.$row1['status'].'&type=' . "content" . '  >Change</a></td>';
+					echo '<td><a href = removeArticle.php?cid='.$row1['cid'].' >Delete</a></td></tr>';	
+
+				}
+	     	}
 			?>
 			</table>
 		</div>

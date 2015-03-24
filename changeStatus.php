@@ -2,27 +2,50 @@
 // get the id from url
 $aid = $_GET['aid'];
 $status = $_GET['status'];
+$type = $_GET['type'];
 
 /**
 *update the status of article
 *if status is equal to public then change it to private or vice-versa
 */
-
-if( $status == 0)
+if( strcmp($type, 'article') == 0)
 {
-	include 'mysql.php';
-	$sql = "update  create_article set status=1 where aid='$aid' ";
-	$result = mysql_query( $sql,$conn);
-	mysql_close($conn);
-	header("location:teacher.php");
+	if( $status == 0)
+	{
+		include 'mysql.php';
+		$sql = "update  create_article set status=1 where aid='$aid' ";
+		$result = mysql_query( $sql,$conn);
+		mysql_close($conn);
+		header("location:teacher.php");
 
+	}
+	else
+	{
+		include 'mysql.php';
+		$sql = "update  create_article set status=0 where aid='$aid' ";
+		$result = mysql_query( $sql,$conn);
+		mysql_close($conn);
+		header( "location:teacher.php");
+	}
 }
-else
+if( strcmp($type, 'content') == 0)
 {
-	include 'mysql.php';
-	$sql = "update  create_article set status=0 where aid='$aid' ";
-	$result = mysql_query( $sql,$conn);
-	mysql_close($conn);
-	header( "location:teacher.php");
+	if( $status == 0)
+	{
+		include 'mysql.php';
+		$sql = "update  create_content set status=1 where cid='$aid' ";
+		$result = mysql_query( $sql,$conn);
+		mysql_close($conn);
+		header("location:teacher.php");
+
+	}
+	else
+	{
+		include 'mysql.php';
+		$sql = "update  create_content set status=0 where cid='$aid' ";
+		$result = mysql_query( $sql,$conn);
+		mysql_close($conn);
+		header( "location:teacher.php");
+	}
 }
 ?>

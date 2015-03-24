@@ -8,13 +8,11 @@
 		session_start();
 		$uid = $_SESSION['uid'];
 		$status=1;
-		if( strcmp($status1,'public'))
+		if( strcmp($status1,'public') == 0)
 		{
             $status=0;
 		}
-		
-
-	    include 'session.php' ;
+		include 'session.php' ;
 
 		if( empty($title1) || empty($news) || empty($status1))
 		{
