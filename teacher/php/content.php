@@ -58,7 +58,7 @@
 				  echo $reasons[$_GET["reason"]];
 				  echo '</div>'; 
 			?>
-			<input type = "submit" name = "submit" value = "Submit"  id = "loginid">
+			<input type = "submit" name = "submit" value = "Submit	"  id = "loginid">
 		</form>
 		</div>
 			<!-- include the bottom file -->

@@ -344,7 +344,7 @@ option
 {
 	text-decoration:none;
 	float:right;
-	color: #FACF1C;
+	color: black;
 	margin-right: 10px;
 }
 .subheader
@@ -353,6 +353,7 @@ option
 	width: 100%;
 	background-color: #E1E3E4;
 	padding-top: 12px;
+	border: 2px solid #D2D6D5;
 
 }
 .subheader a
@@ -362,35 +363,42 @@ option
 }	
 .subheader  a:hover
 {
-	color: #FACF1C;
+	color: black;
+}
+.subheader  a
+{
+	color: #888888;
 }
 .subheaderwc
 {
-	color:#FACF1C;
+	color:black;
 	padding-left:64px;
 }
 .centertextback
 {
-	width:700px; 
-	height:auto; 
-	background-color:#6D61A9; 
-	margin-left:auto;
-	margin-right:auto;
+	width:250px; 
+	height: 350px;
+	 
+	background-color:#F4F4F4; 
 	margin-top:20px; 
-	text-align:center;
-	box-shadow: -2px -2px #6D61A9;
+	margin-left: 54px;
+	padding: 10px;
+	word-wrap:break-word;
+	float: left;
+	margin-bottom: 20px;
+	
+
 
 }
 .centertextback a
 {
-	color: #FFFFFF;
+	color: black;
 
 }
 .teachertable
 {
 	margin-left:96px;
-
-	border-color: black;
+    border-color: black;
 	border: 1px solid #7D73B1;
 	border-collapse: collapse;
 	text-align: center;

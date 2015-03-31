@@ -23,6 +23,7 @@
 			$sql = "SELECT aid , title , uid , article_text , status , substring(article_text,1,90) as subtext FROM create_article where status = 0 OR uid = '$uid' ";
 			$result = mysql_query( $sql,$conn );
 			echo '<br><br>';
+			//echo '<div>'
 			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 			{
 				$Name = getName($row['uid']);
@@ -34,12 +35,13 @@
 				echo $row['subtext'] . '...........';
 				echo '<br><br>';
 				echo '<a href = redirect.php?aid='.$row['aid'].'>';
-				echo '<span style="margin-left:250px;">Click here to read more</span>';
+				echo '<span>Click here to read more</span>';
 				echo '</a>';
 				echo '<span style="color:#FACF1C;">&nbsp;&nbsp;&nbsp; By-' . $Name . '</span><br>';
 				echo '</div>';
-				echo '<br>';
+				
 			}
+			//echo '</div>';
 
 		}
 		function getName($uid)

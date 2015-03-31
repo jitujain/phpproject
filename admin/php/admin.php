@@ -36,7 +36,7 @@
 
 			<!-- form description -->
 
-			<p id = "formid"><b>Please Create New  Account</b></p>
+			<p id = "formloginid"><b>Please Create New  Account</b></p>
             <div class="formbackground">
 			<form id = "checkvalue"   action= "register.php" method = "POST" >
 			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox" name = "email">	</br>
