@@ -36,7 +36,10 @@
 		<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 		<a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
 		<a href = "../../common/php/redirect.php?utype=<?php echo $_SESSION['utype2'] ?>" > Home </a>
-		<a href = "../../common/php/showArticle.php" > Show  Article </a>
+		<a href = "content.php" >Create Content </a >
+		<a href = "createArticle.php" >Create Article </a >
+		<a href = "../../common/php/showArticle.php" > Show  Articles </a>
+		<a href = "showContent.php" > Show  Contents </a>
 	</div>
 		<?php
 		  include 'fetchContent.php';

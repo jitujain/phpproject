@@ -31,10 +31,10 @@
 	{
 
 		echo '<br>';	
-		echo '<div style="width:700px;height:60px;background-color:#9286D2;margin-top:20px;">';
+		//echo '<div style="width:700px;height:60px;background-color:#9286D2;margin-top:20px;">';
 		echo '<br>' . $row1['comment'];
-		echo '<br><span style="color:#FACF1C;float:right;">Comment By-'. $row1['uname'] . '</span>';
-		echo '</div>';
+		echo '<br><span style="color:#6AACA5">Comment By-'. $row1['uname'] . '</span>';
+		//echo '</div>';
 
 	}
     }

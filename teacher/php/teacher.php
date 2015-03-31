@@ -35,14 +35,16 @@
 			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			
 			<a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
+			<a href = "teacher.php" >Home </a >
 			<a href = "content.php" >Create Content </a >
 			<a href = "createArticle.php" >Create Article </a >
 			<a href = "../../common/php/showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>
 				
 		</div>
-			<div class="centertextback" style="width:600px;" id="cdiv">
-			<p id = "formid"> <b>Your News Article And Teaching Content</b> </p> 
+		    <h2><p id = "formloginid">Your News Article And Teaching Content</p></h2> </br>
+			<div class="centertextback" style="width:650px;margin-left:340px;" id="cdiv">
+			
             <table border="1" align="center" class ="teachertable">
             <tr> 
                <th>Title</th>
@@ -56,7 +58,7 @@
 			include '../../common/php/mysql.php';
 			$count =0;
 			//$result = getArticle($_SESSION['email2']);
-			$sql = "SELECT * FROM create_article where uid = $uid ";
+			$sql = "SELECT aid,status,substring(title,1,20) as title FROM create_article where uid = $uid ";
 			$sql1 = "SELECT * FROM create_content where uid = $uid ";
 			$result = mysql_query( $sql,$conn );
 			$count =  mysql_num_rows( $result );
@@ -76,9 +78,9 @@
 	                   $status = 'public';
 	                }
 					echo '<tr><td>' . $row['title'] . '</td>&nbsp;&nbsp';
-					echo '<td>&nbsp;&nbsp;&nbsp;' . $status . '</td>';
+					echo '<td>' . $status . '</td>';
 					echo '<td>' . "Article" . '</td>';
-					echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row['aid'].'&status='.$row['status'].'&type='. "article" .'  >Change</a></td>';
+					echo '<td><a href = changeStatus.php?aid='.$row['aid'].'&status='.$row['status'].'&type='. "article" .'  >Change</a></td>';
 					echo '<td><a href = removeArticle.php?aid='.$row['aid'].' >Delete</a></td></tr>';	
 
 				}

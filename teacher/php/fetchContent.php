@@ -32,11 +32,10 @@
 			echo $row['subtext'] . '...........';
 			echo '<br>';
 			echo '<a href = fullContent.php?aid='.$row['cid'].'>';
-			echo '<br><span style="margin-left:300px;">Click here to read more</span>';
+			echo '<br>Click here to read more</br>';
 			echo '</a>';
 			echo '<span style="color:#FACF1C;align:right;">&nbsp;&nbsp;&nbsp; By-' . $Name . '</span>';
 			echo '</div>';
-			
 			echo '<br>';
 		}
 
