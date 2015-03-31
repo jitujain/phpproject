@@ -44,6 +44,9 @@
 html,body
 {
 	height:100%;
+	color: #313131;
+    font-family: MuseoSans,serif;
+    font-size: 15px;
 }
 #page
 {
@@ -53,10 +56,25 @@ width:100%;
 
 .formdes
 {
-	background: linear-gradient(to bottom, #6A60A7, #A091EC);
+	background: linear-gradient(to bottom, #E1E3E4, #E1E3E4);
 	width: 100%;
 	float: left;
 	margin-top: -4px;
+
+}
+.formbackground
+{
+	background-color: #F1F1F1;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+    margin-bottom: 40px;
+    padding: 35px 70px;
+    width: 28%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+
 }
 .formdes p
 {
@@ -84,27 +102,23 @@ width:100%;
 }
 #formloginid
 {
-	text-align: center;;
-	font-family: arial;
-	font-size: 26px;
-	text-shadow: 2px 2px #504683;
-	color: white;
-	font: bold;
-	margin-top: 150px;
+	font-family: 'MuseoSans_xFat';
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: -20px;
 
 }
 .textbox
 {
-	height: 36px;
-	width: 26%;
-	margin-top: 10px;
-	margin-left: 37%;
-	border: solid 5px #7D73B1;
-	
-	padding: 6px;
-	font-family: cambria;
-	font-size: 14px;
-	font: bold;
+	-moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #D6D6D6;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+    height: 40px;
+    padding: 0 15px;
+    transition: all 0.25s ease 0s;
+    width: 100%;
 	
 }
 .titlebox
@@ -159,29 +173,28 @@ width:100%;
 
 .in
 {
-	height: 36px;
-	width: 12%;
-	margin-top: 10px;
-	margin-left: 37%;
-	border: solid 5px #7D73B1;
-	
-	padding: 6px;
-	font-family: cambria;
-	font-size: 14px;
-	font: bold;
+	-moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #D6D6D6;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+    height: 40px;
+    padding: 0 15px;
+    transition: all 0.25s ease 0s;
+    width: 48%;
 
 }
 .in1
 {
-	height: 36px;
-	width: 12%;
-	margin-left: 20px;
-	margin-top: 10px;
-	border: solid 5px #7D73B1;
-	padding: 6px;
-	font-family: cambria;
-	font-size: 14px;
-	font: bold;
+	-moz-box-sizing: border-box;
+    background: none repeat scroll 0 0 #F4F4F4;
+    border: 1px solid #D6D6D6;
+    border-radius: 2px 2px 2px 2px;
+    display: block;
+    height: 40px;
+    padding: 0 15px;
+    transition: all 0.25s ease 0s;
+    width: 48%;
 }
 .checkboxid
 {
@@ -250,16 +263,18 @@ width:100%;
 }
 #loginid
 {
-	height: 40px;
-	width: 26%;
-	background: linear-gradient(to bottom, #FACF1C, #E9A714);;
-	margin-left: 37%;
-	margin-top: 10px;
-	border-radius: 5px;
-	border: 0px;
-	font: bold;
-	margin-bottom: 7px;
-	text-shadow: -0.5px 0.5px #FFFFFF;
+	-moz-box-sizing: border-box;
+    background-color: #3C948B;
+    border: 0 none;
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    line-height: 41px;
+    padding: 0 15px;
+    transition: all 0.2s linear 0s;
+    width: 100%;
 
 
 }
@@ -336,8 +351,8 @@ option
 {
 	height: 30px;
 	width: 100%;
-	background-color: black;
-		padding-top: 12px;
+	background-color: #E1E3E4;
+	padding-top: 12px;
 
 }
 .subheader a

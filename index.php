@@ -28,8 +28,12 @@
     ?>
      <!--login form -->
     <div class = "formdes" id="page">
-
-		<p id = "formloginid"> <b>Please Login From Here</b> </p> 
+    <h2><p id = "formloginid"> Please Login From Here </p></h2> 
+    <p align="center">
+       <em>Login with your username or email</em>
+    </p>
+        <div class = "formbackground">
+		
 		<form  action = "admin/php/loginval.php" method = "POST" >
 			<input type = "text" name = "mail1" class = "textbox" placeholder = "Enter Email"><br>
 			<input type = "password" name = "pass" class = "textbox" placeholder = "Enter password"><br>
@@ -43,6 +47,7 @@
 			?>			
 			<input type = "submit" name = "submit" value = "Login"  id = "loginid">
 		</form>
+		</div>
    </div>
     <!--include the bottom file -->
     <?php

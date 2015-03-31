@@ -37,22 +37,22 @@
 			<!-- form description -->
 
 			<p id = "formid"><b>Please Create New  Account</b></p>
-
+            <div class="formbackground">
 			<form id = "checkvalue"   action= "register.php" method = "POST" >
-			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox" name = "email">	<br>
-			<input type = "text"     placeholder = "Enter username"   id = "uname" class = "textbox" name = "uname"><br>
-			<input type = "password" placeholder = "Create password"  id = "pass" class = "textbox" name = "pass"><br>
-			<input type = "text"     placeholder = "First name" class = "in"  id = "fname" name = "fname">
-			<input type = "text"     placeholder = "Last name" class = "in1"  id = "lname" name = "lname"><br>
+			<input type = "text"    placeholder = "Enter email"  id = "email" class = "textbox" name = "email">	</br>
+			<input type = "text"     placeholder = "Enter username"   id = "uname" class = "textbox" name = "uname"></br>
+			<input type = "password" placeholder = "Create password"  id = "pass" class = "textbox" name = "pass"></br>
+			<input type = "text"     placeholder = "First name" class = "textbox"  id = "fname" name = "fname"></br>
+			<input type = "text"     placeholder = "Last name" class = "textbox"  id = "lname" name = "lname"></br>
 			<select class = "textbox" id = "utype" name = "utype">
-			<option><span style = "font-family: cambria;">Select UserType</span></option>
-			<option><span style = "font-family: cambria;">admin</span></option>
-			<option><span style = "font-family: cambria;">student</span></option>
-			<option><span style = "font-family: cambria;">teacher</span></option>
+			<option>Select UserType</option>
+			<option>admin</option>
+			<option>student</option>
+			<option>teacher</option>
 			</select>
-			<input type = "checkbox" class = "checkboxid1">  <span id = "checkboxid"> keep me logged when using this computer </span><br>
+			<!-- <input type = "checkbox" class = "checkboxid1">  <span id = "checkboxid"> keep me logged when using this computer </span><br>
 			<input type = "checkbox" class = "checkboxid1" > <span id = "checkboxid"> Email me a weekly newslatter </span>
-			<input type = "checkbox" class = "checkboxid" > <span id = "checkboxid"> Email me a daily newslatter </span>
+			<input type = "checkbox" class = "checkboxid" > <span id = "checkboxid"> Email me a daily newslatter </span> -->
 			<?php 
 				  echo '<div class = "loginerror">';
 				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank.", "email" => "Email already used" , "success" => "Successfully Registered"); 
@@ -61,14 +61,16 @@
 				  echo '</div>'; 
 			?>	
 			<!-- code of the submit button and that div-->
-			<div class = "submit">
-			<input type = "submit" value = "Complete Sign-up" id = "sub" >
+			</br><input type = "submit" value = "Complete Sign-up" id = "loginid" >
+			<!-- <div class = "submit">
+			
 			<span class = "submittext" >&nbsp;   By Registering you confirm that you agree with our
 			<br>
 			<a href = "">Terms &amp Conditions</a>&nbsp; and &nbsp;<a href = "">Privacy policy</a>
 			</span>
-			</div>
+			</div> -->
 			</form>
+			</div>
 			</div>
 		<!--include bottoom file  -->
 		<?php
