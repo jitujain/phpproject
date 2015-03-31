@@ -12,40 +12,40 @@ if( strcmp($type, 'article') == 0)
 {
 	if( $status == 0)
 	{
-		include 'mysql.php';
+		include '../../common/php/mysql.php';
 		$sql = "update  create_article set status=1 where aid='$aid' ";
 		$result = mysql_query( $sql,$conn);
 		mysql_close($conn);
-		header("location:teacher.php");
+		header("location:../../teacher/php/teacher.php");
 
 	}
 	else
 	{
-		include 'mysql.php';
+		include '../../common/php/mysql.php';
 		$sql = "update  create_article set status=0 where aid='$aid' ";
 		$result = mysql_query( $sql,$conn);
 		mysql_close($conn);
-		header( "location:teacher.php");
+		header( "location:../../teacher/php/teacher.php");
 	}
 }
 if( strcmp($type, 'content') == 0)
 {
 	if( $status == 0)
 	{
-		include 'mysql.php';
+		include '../../common/php/mysql.php';
 		$sql = "update  create_content set status=1 where cid='$aid' ";
 		$result = mysql_query( $sql,$conn);
 		mysql_close($conn);
-		header("location:teacher.php");
+		header("location:../../teacher/php/teacher.php");
 
 	}
 	else
 	{
-		include 'mysql.php';
+		include '../../common/php/mysql.php';
 		$sql = "update  create_content set status=0 where cid='$aid' ";
 		$result = mysql_query( $sql,$conn);
 		mysql_close($conn);
-		header( "location:teacher.php");
+		header( "location:../../teacher/php/teacher.php");
 	}
 }
 ?>

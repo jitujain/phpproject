@@ -14,8 +14,8 @@ $flag = 0;
 */
 
 
-include 'session.php';
-include 'mysql.php';
+include '../../common/php/session.php';
+include '../../common/php/mysql.php';
 
 /**
 * It check wether this email is already registerd or not.
@@ -62,7 +62,7 @@ else
 function checkEmail($email)
 { 
 	$sql = "SELECT * FROM register where email = '$email' ";
-    include 'mysql.php';
+    include '../../common/php/mysql.php';
 	$result = mysql_query( $sql,$conn );
 	$count =  mysql_num_rows( $result );
 	return $count;

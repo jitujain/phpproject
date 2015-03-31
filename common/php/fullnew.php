@@ -5,14 +5,15 @@ include 'session.php';
 <html>
 <head>
 	<title>full news</title>
-	<link rel = "stylesheet" type = "text/css" href = "ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../css/ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../css/head_bottom.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 </head>
 
 <body >
 	<?php
-	include 'header.html' ;
+	include '../../common/html/header.html' ;
 
 	//$aid = $_GET['aid'];
 	//echo $aid;
@@ -46,7 +47,7 @@ include 'session.php';
 	</div>
 </div>
 <?php 
-include 'bottom.html';
+include '../html/bottom.html';
 ?>
 </body>
 

@@ -2,6 +2,12 @@
 $aid = $_GET['aid'];
 $utype = $_GET['utype'];
 session_start();
+include 'mysql.php';
+$sql = "SELECT * FROM create_article  where aid='$aid' and status=0 ";
+$result = mysql_query($sql, $conn);
+$count =  mysql_num_rows( $result );
+
+
 /**
 *Here first it get the article id and user type from url
 *now check either aid is set or utype is set
@@ -12,10 +18,19 @@ session_start();
 *It is used because student and teacher both have their different home page content
 *so for differentiate both of them and reuse the code, use this concept
 */
-if( isset($aid))
+if($count == 0)
+{
+	echo "try to access wrong page";
+
+}
+else
+{
+	if( isset($aid))
 {
 	$_SESSION['aid'] = $aid;
     header("location:fullnew.php");
+
+}
 
 }
 if( isset($utype))
@@ -23,11 +38,11 @@ if( isset($utype))
  
 	if( !strcmp($utype,"student"))
 	{
-		header("location:student.php");
+		header("location:../../student/php/student.php");
 	}
 	if( !strcmp($utype,"teacher"))
 	{
-		header("location:teacher.php");
+		header("location:../../teacher/php/teacher.php");
 	}
     
 }

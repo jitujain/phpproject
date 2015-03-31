@@ -1,13 +1,14 @@
 <?php
   //manage the session
-  include 'session.php';
+  include '/../../common/php/session.php';
 ?>
 <html>
 	<head>
 	<title>Admin</title>
-	<link rel = "stylesheet" type = "text/css" href = "ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/head_bottom.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src = "reg.js"></script>
+	<script src = "../../common/js/reg.js"></script>
 	<!-- script execute after java script is off done by browser -->
 		<noscript>
 			<style type = "text/css">
@@ -23,13 +24,13 @@
 	<body>
 	<!-- include header file -->
 		<?php
-		  include 'header.html';
+		  include '../../common/html/header.html';
 		?>
         <!-- this subheader show the some link to forward next page and show logout button-->
 		<div class = "formdes" id="page">
 			<div class="subheader">
 			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
-			<a href="logout.php"><span class="logout">Logout</span></a>
+			<a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
 
 		</div>
 
@@ -71,7 +72,7 @@
 			</div>
 		<!--include bottoom file  -->
 		<?php
-		  include 'bottom.html';
+		  include '../../common/html/bottom.html';
 		?>
 	</body>
 </html>

@@ -1,9 +1,10 @@
 <html>
 <head>
 	<title>showArticle page</title>
-	<link rel = "stylesheet" type = "text/css" href = "ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../css/ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../css/head_bottom.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src = "reg.js"></script>
+	<script src = "../js/reg.js"></script>
 	<!-- script execute after java script is off done by browser -->
 	<noscript>
 		<style type = "text/css">
@@ -22,7 +23,7 @@
 
 	<!--include the header file -->
 	<?php
-	include 'header.html';
+	include '../html/header.html';
 	?>
 	<!--login form -->
 	<div class = "formdes" id="page">
@@ -42,7 +43,7 @@
     </div>
     <!--include the bottom file -->
     <?php
-     include 'bottom.html';
+     include '../html/bottom.html';
     ?>
 </body>
 </html>

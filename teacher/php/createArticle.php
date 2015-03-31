@@ -5,9 +5,10 @@
 <html>
 <head>
     <title>create article</title>
-	<link rel = "stylesheet" type = "text/css" href = "ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/head_bottom.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src= "reg.js"></script>
+	<script src= "../../common/js/reg.js"></script>
 	<!-- script execute after java script is off done by browser -->
 	<noscript>
 		<style type = "text/css">
@@ -25,7 +26,7 @@
 	<!-- include header file-->
 
 	<?php
-	  include 'header.html';
+	  include '../../common/html/header.html';
 	?>
 	<!-- designing code-->
 	<div class = "formdes" id="page">
@@ -36,10 +37,10 @@
 		?>
 		<div class="subheader">
 			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
-			<a href="logout.php"><span class="logout">Logout</span></a>
+			<a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
 			<a href = "teacher.php" > Home </a>
 			<a href = "content.php" >Create Content </a >
-			<a href = "showArticle.php" > Show  Articles </a>
+			<a href = "../../common/php/showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>
 		</div>
 			<p id = "formid"> <b>Please Create Your News Article Here</b> </p> 
@@ -57,13 +58,13 @@
 				  echo $reasons[$_GET["reason"]];
 				  echo '</div>'; 
 			    ?>	
-				<input type = "submit" name = "submit" value = "Login"  id = "loginid">
+				<input type = "submit" name = "submit" value = "Submit"  id = "loginid">
             </form>
 				
 	</div>
 			<!-- include bottom file-->
 	<?php
-	  include 'bottom.html'; 
+	  include '../../common/html/	bottom.html'; 
 	?>
 
 </body>

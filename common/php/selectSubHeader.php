@@ -14,8 +14,8 @@
 	{
 		echo '<span class="subheaderwc">Welcome &nbsp; ' . ucwords($_SESSION['uname2']) . '</span>';
 		echo '<a href = "redirect.php?utype='. $_SESSION['utype2'] . '" > Home </a>';
-        echo '<a href = "content.php" >Create Content </a >';
-		echo '<a href = "showContent.php" > Show  Contents </a>';
+        echo '<a href = "../../teacher/php/content.php" >Create Content </a >';
+		echo '<a href = "../../teacher/php/showContent.php" > Show  Contents </a>';
 		echo '<a href="logout.php"><span class="logout">Logout</span></a>';	
 	}
     

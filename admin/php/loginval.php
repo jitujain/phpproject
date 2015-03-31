@@ -4,14 +4,16 @@
     $mail1=$_POST['mail1'];
     $pass1=$_POST['pass'];
     session_start();
-    
+    echo $mail1;
+    echo $pass1;
     //include the mysql connection file
-    include 'mysql.php';
+    include '../../common/php/mysql.php';
 
     $sql = "SELECT * FROM register where email = '$mail1' and pass = md5('" . $pass1 . "')";
 
     $result = mysql_query( $sql,$conn );
     $count =  mysql_num_rows( $result );
+    echo $count;
     if( $count == 1 )
     {
       $utype;
@@ -43,19 +45,19 @@
       }
       elseif( strcmp($utype, 'teacher')==0)
       { 
-        header( "location:teacher.php" );
+        header( "location:../../teacher/php/teacher.php" );
       }
       else
       {
-        header( "location:student.php" );
+        header( "location:../../student/php/student.php" );
       }
       
 
     }
     else
     {
-      //echo "please provide the right username and password";
-      die(header("location:index.php?loginFailed=true&reason=password"));
+      echo "please provide the right username and password";
+      die(header("location:/../index.php?loginFailed=true&reason=password"));
     }
 
     mysql_close($conn);

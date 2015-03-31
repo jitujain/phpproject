@@ -1,6 +1,6 @@
 <?php
         // get the id from url
-	//$aid=$_SESSION['aid'];
+	$aid=$_SESSION['aid'];
 	//echo $aid;
 
     // include mysql connection file
@@ -11,6 +11,7 @@
 	$sql1 = "SELECT * FROM comments where aid='$aid' " ;
 	$result = mysql_query( $sql,$conn);
 	$result1 = mysql_query($sql1, $conn);
+	$count =  mysql_num_rows( $result );
 	   echo '<br>';
 	while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 	{
@@ -20,6 +21,12 @@
 		echo  $row['article_text'] ; 
 
 	}
+	if($count == 0)
+	{
+
+	}
+	else
+	{
 	while( $row1 = mysql_fetch_array( $result1, MYSQL_ASSOC ))
 	{
 
@@ -30,6 +37,7 @@
 		echo '</div>';
 
 	}
+    }
 
 
 

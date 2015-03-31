@@ -10,12 +10,12 @@
 	$upass = $_SESSION['password2'];
 	if( empty($uemail) || empty($upass))
 	{
-		header('location:index.php');
+		header('location:../../index.php');
 	}
 	else
 	{
 
-		include 'mysql.php';
+		include '../../common/php/mysql.php';
 		session_start();
 		// retriving data from article table where status ois public;
 		$sql = 'SELECT cid , title , uid , content_text , status , substring(content_text,1,30) as subtext FROM create_content where status = 0';
@@ -44,7 +44,7 @@
 	    function getName($uid)
 		{
 			$Name;
-			include 'mysql.php' ;
+			include '../../common/php/mysql.php' ;
 			$sql = "Select uname from register where uid ='$uid'";
 			$result = mysql_query( $sql,$conn );
 			while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))

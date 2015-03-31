@@ -5,9 +5,10 @@
 <html>
 <head>
     <title>Content</title>
-	<link rel = "stylesheet" type = "text/css" href = "ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/head_bottom.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src = "reg.js"></script>
+	<script src = "../../common/js/reg.js"></script>
 	<!--noscript code  -->
 	<noscript>
 		<style type = "text/css">
@@ -23,7 +24,7 @@
 <body >
 	<!-- include hearder file -->
 	<?php
-	  include 'header.html';
+	  include '../../common/html/header.html';
 	?>
 
 	<div class = "formdes" id="page">
@@ -34,10 +35,10 @@
 		?>
 		<div class="subheader" >
 			<span class="subheaderwc"> Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
-			<a href="logout.php"><span class="logout">Logout</span></a>
+			<a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
 			<a href = "teacher.php" > Home </a>
 			<a href = "createArticle.php" >Create Article </a >
-			<a href = "showArticle.php" > Show  Articles </a>
+			<a href = "../../common/php/showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>
 		</div>
 
@@ -57,12 +58,12 @@
 				  echo $reasons[$_GET["reason"]];
 				  echo '</div>'; 
 			?>
-			<input type = "submit" name = "submit" value = "Login"  id = "loginid">
+			<input type = "submit" name = "submit" value = "Submit"  id = "loginid">
 		</form>
 		</div>
 			<!-- include the bottom file -->
 	<?php
-	  include 'bottom.html';
+	  include '../../common/html/bottom.html';
 	?>
 	</div>
 </body>

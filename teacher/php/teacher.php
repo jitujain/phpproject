@@ -1,13 +1,14 @@
 <?php
   //manage the session
-  include 'session.php';
+  include '../../common/php/session.php';
 ?>
 <html>
 <head>
      <title>Teacher</title>
-	<link rel = "stylesheet" type = "text/css" href = "ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/ind.css">
+	<link rel = "stylesheet" type = "text/css" href = "../../common/css/head_bottom.css">
 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src= "reg.js"></script>
+	<script src= "../../common/js/reg.js"></script>
 	<!-- script execute after java script is off done by browser -->
 	<noscript>
 		<style type = "text/css">
@@ -25,7 +26,7 @@
 	<!-- include header file-->
 
 	<?php
-	include 'header.html';
+	include '../../common/html/header.html';
 	?>
 	<!-- designing code-->
 	<div class = "formdes" id="page">
@@ -33,10 +34,10 @@
 		<div class="subheader">
 			<span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			
-			<a href="logout.php"><span class="logout">Logout</span></a>
+			<a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
 			<a href = "content.php" >Create Content </a >
 			<a href = "createArticle.php" >Create Article </a >
-			<a href = "showArticle.php" > Show  Articles </a>
+			<a href = "../../common/php/showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>
 				
 		</div>
@@ -52,7 +53,7 @@
             </tr>
 			<?php 
 			$uid = $_SESSION['uid'];
-			include 'mysql.php';
+			include '../../common/php/mysql.php';
 			$count =0;
 			//$result = getArticle($_SESSION['email2']);
 			$sql = "SELECT * FROM create_article where uid = $uid ";
@@ -102,7 +103,7 @@
     </div>
 	<!-- include bottom file-->
 	<?php
-	include 'bottom.html';
+	include '../../common/html/bottom.html';
 	?>
 </body>
 </html>

@@ -21,7 +21,7 @@ if( isset($_POST['submit'] ))
 	else
 	{
 		//include mysql connection file
-	include 'mysql.php';
+	include '../../common/php/mysql.php';
     $sql = "INSERT INTO create_article" . "( uid,title,article_text,status )" . "values( '$uid','$title1','$news','$status' )";
  	$result = mysql_query( $sql,$conn );
 	if(! $result )
