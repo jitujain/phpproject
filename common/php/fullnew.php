@@ -19,18 +19,14 @@ include 'session.php';
 	//echo $aid;
 	session_start();
 	$aid = $_SESSION['aid'];
-	//echo $aid;
 	?>
 	<div class="formdes" id="page">
-		<div class="subheader">	
+		<div class="subheader">
 			<?php
-			  include 'selectSubHeader.php'; 
+			  include 'selectSubHeader.php';
 			?>
-			
-		</div>
 
-		<!-- <div style = "width:700px; height:auto; background-color:#6D61A9; margin-left: auto;
-		margin-right:auto; text-align:center;margin-top:50px;" id="cdiv"> -->
+		</div>
 		<div class="formbackground>">
 		<?php
 		include 'createComment.php';
@@ -45,7 +41,7 @@ include 'session.php';
 		</div>
 	</div>
 </div>
-<?php 
+<?php
 include '../html/bottom.html';
 ?>
 </body>

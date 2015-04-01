@@ -1,12 +1,11 @@
 <?php
-        // get the id from url
+  // get the id from url
 	$aid=$_SESSION['aid'];
-	//echo $aid;
 
-    // include mysql connection file
-		include 'mysql.php';
-    //echo '<table>';
-    // Retriving the value from article table
+
+	  // include mysql connection file
+	include 'mysql.php';
+	  // Retriving the value from create_article table
 	$sql = "SELECT * FROM create_article  where aid='$aid' ";
 	$sql1 = "SELECT * FROM comments where aid='$aid' " ;
 	$result = mysql_query( $sql,$conn);
@@ -19,7 +18,7 @@
 		echo '<b><br>' . $row['title'] . '</b>';
 		echo '<br><br>';
 		echo  $row['article_text'] ;
-		echo '</div>'; 
+		echo '</div>';
 
 	}
 	if($count == 0)
@@ -31,8 +30,8 @@
 	while( $row1 = mysql_fetch_array( $result1, MYSQL_ASSOC ))
 	{
 
-			
-		echo '<div class = "commentbox">'; 	
+
+		echo '<div class = "commentbox">';
 		echo '<br>' . $row1['comment'];
 		echo '<br><span style="color:#6AACA5">Comment By-'. $row1['uname'] . '</span>';
 		echo '</div>';
@@ -49,10 +48,10 @@
 	$uname = $_SESSION['uname2'];
 	unset($_POST['comment']);
 
-	if( empty($comment)) 
+	if( empty($comment))
 	{
 		echo '<span style = "margin-left:60px;">please provide the comment</span>';
-		echo '<a href="fullnew.php" style = "color:#6AACA5;"> BACK</a>'; 
+		echo '<a href="fullnew.php" style = "color:#6AACA5;"> BACK</a>';
 
 	}
 	else

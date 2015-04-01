@@ -27,16 +27,16 @@ if($count == 0)
 else
 {
 	if( isset($aid))
-{
-	$_SESSION['aid'] = $aid;
-    header("location:fullnew.php");
+	{
+		$_SESSION['aid'] = $aid;
+		header("location:fullnew.php");
 
-}
+	}
 
 }
 if( isset($utype))
 {
- 
+
 	if( !strcmp($utype,$utype1))
 	{
 		header("location:../../student/php/student.php");
@@ -45,7 +45,7 @@ if( isset($utype))
 	{
 		header("location:../../teacher/php/teacher.php");
 	}
-    else
+	else
 	{
 		echo "Try to access wrong page";
 	}

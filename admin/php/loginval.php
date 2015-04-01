@@ -1,12 +1,12 @@
 <?php
   if( isset($_POST['submit']) )
-  {   
+  {
     $mail1=$_POST['mail1'];
     $pass1=$_POST['pass'];
     session_start();
     echo $mail1;
     echo $pass1;
-    //include the mysql connection file
+      //include the mysql connection file
     include '../../common/php/mysql.php';
 
     $sql = "SELECT * FROM register where email = '$mail1' and pass = md5('" . $pass1 . "')";
@@ -20,39 +20,37 @@
       while( $row = mysql_fetch_array($result)  )
       {
 
-        /**
-        *user information store in session
-        *this values use later on next pages
-        *this values maintain the session
-        */        
-        $_SESSION['uid'] = $row['uid'];
-        $_SESSION['password2'] = $row['pass'];
-        $_SESSION['utype2'] = $row['utype'];
-        $utype = $row['utype'];
-        $_SESSION['uname2'] = $row['uname'];
-        $_SESSION['email2'] = $row['email'];
-      }
-       
-       /**
-       *First check the user type 
-       *then forward the that page
-       */
+          /**
+          *user information store in session
+          *these values use later on next pages
+          *this values maintain the session
+          */
+          $_SESSION['uid'] = $row['uid'];
+          $_SESSION['password2'] = $row['pass'];
+          $_SESSION['utype2'] = $row['utype'];
+          $utype = $row['utype'];
+          $_SESSION['uname2'] = $row['uname'];
+          $_SESSION['email2'] = $row['email'];
+        }
 
-      if( strcmp($utype, 'admin')==0)
-      {
-        header( "location:admin.php" );
+         /**
+         *First check the user type
+         *then forward the that page
+         */
 
-      }
-      elseif( strcmp($utype, 'teacher')==0)
-      { 
-        header( "location:../../teacher/php/teacher.php" );
-      }
-      else
-      {
-        header( "location:../../student/php/student.php" );
-      }
-      
+         if( strcmp($utype, 'admin')==0)
+         {
+          header( "location:admin.php" );
 
+        }
+        elseif( strcmp($utype, 'teacher')==0)
+        {
+          header( "location:../../teacher/php/teacher.php" );
+        }
+        else
+        {
+          header( "location:../../student/php/student.php" );
+        }
     }
     else
     {
@@ -61,5 +59,5 @@
     }
 
     mysql_close($conn);
-    }
-    ?>
+  }
+?>

@@ -30,8 +30,6 @@
 	<div class = "formdes" id="page">
 		<?php
 		session_start();
-		//echo "uname is" . $_SESSION['uname2'];
-		//echo $_SESSION['uname2'];
 		?>
 		<div class="subheader" >
 			<span class="subheaderwc"> Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
@@ -45,7 +43,7 @@
 
 			<!-- content page design -->
 
-		<h2><p id = "formloginid">Create Your Content Here</p></h2> 
+		<h2><p id = "formloginid">Create Your Content Here</p></h2>
 		<div class="formbackground">
 		<form  action = "addContent.php" method = "POST">
 			<input type = "text" name = "title22" class = "textbox" placeholder = "Enter Title "><br>
@@ -53,12 +51,12 @@
 			<span class = "selectRadio">Select Status Type</span>
 			<span class = "statusText">Private<span><input type = "radio" name = "status" value = "private" class="radio" checked="checked">
 			<span class = "statusText">Public</span><input type = "radio" name = "status" value = "public" class="radio"><br>
-			<?php 
+			<?php
 				  echo '<div class = "loginerror">';
-				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank."); 
-				  if ($_GET["loginFailed"]) 
+				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank.");
+				  if ($_GET["loginFailed"])
 				  echo $reasons[$_GET["reason"]];
-				  echo '</div>'; 
+				  echo '</div>';
 			?>
 			</br>
 			<input type = "submit" name = "submit" value = "Submit	"  id = "loginid">
