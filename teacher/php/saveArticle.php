@@ -18,6 +18,11 @@ if( isset($_POST['submit'] ))
 		die(header("location:createArticle.php?loginFailed=true&reason=password"));
 
 	}
+	elseif( ctype_space($title1) || ctype_space($news))
+	{
+		die(header("location:createArticle.php?loginFailed=true&reason=password"));
+
+	}
 	else
 	{
 		//include mysql connection file

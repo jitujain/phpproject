@@ -17,6 +17,7 @@
 	<div class="formdes" id="page">
 		<div class="subheader">
 		  <span class="subheaderwc">Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
+		  <a href = "teacher.php" >Home </a >
 		  <a href = "content.php" >Create Content </a >
 		  <a href = "createArticle.php" >Create Article </a >
 		  <a href = "../../common/php/showArticle.php" > Show  Articles </a>
@@ -24,8 +25,8 @@
 		  <a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
 			
 		</div>
-		<div style = "width:700px; height:auto; background-color:#6D61A9; margin-left: auto;
-		margin-right:auto; text-align:center;margin-top:50px;" id="cdiv">
+		<!-- <div style = "width:700px; height:auto; background-color:#6D61A9; margin-left: auto;
+		margin-right:auto; text-align:center;margin-top:50px;" id="cdiv"> -->
 
 		<?php
         //get the id from url
@@ -38,18 +39,16 @@
 		$sql = "SELECT * FROM create_content  where cid='$aid' ";
 		$result = mysql_query( $sql,$conn);
 		while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
-		{
+		{   
+			echo '<div class = "commentbox" style="border-bottom:2px  #CCCCCC;">';
 			echo '<b>' . $row['title'] . '</b>';
 			echo '<br>';
 			echo $row['content_text'];
+			echo '</div>';
 
 		}
 		mysql_close($conn);
 		?>
-		<!-- design of bottom border  -->
-		<br>
-		<div style = "width:700px;height:40px;background-color:#9281D6;margin-top:20px;" id="aa"></div>
-	    </div>
     </div>
     <?php 
      include '../../common/html/bottom.html';

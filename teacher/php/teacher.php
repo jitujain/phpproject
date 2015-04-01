@@ -59,7 +59,7 @@
 			$count =0;
 			//$result = getArticle($_SESSION['email2']);
 			$sql = "SELECT aid,status,substring(title,1,20) as title FROM create_article where uid = $uid ";
-			$sql1 = "SELECT * FROM create_content where uid = $uid ";
+			$sql1 = "SELECT cid,status,substring(title,1,20) as title FROM create_content where uid = $uid ";
 			$result = mysql_query( $sql,$conn );
 			$count =  mysql_num_rows( $result );
 			$result1 = mysql_query( $sql1,$conn );
@@ -92,9 +92,9 @@
 	                   $status = 'public';
 	                }
 					echo '<tr><td>' . $row1['title'] . '</td>&nbsp;&nbsp';
-					echo '<td>&nbsp;&nbsp;&nbsp;' . $status . '</td>';
+					echo '<td>' . $status . '</td>';
 					echo '<td>' . "Content" . '</td>';
-					echo '<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = changeStatus.php?aid='.$row1['cid'].'&status='.$row1['status'].'&type=' . "content" . '  >Change</a></td>';
+					echo '<td><a href = changeStatus.php?aid='.$row1['cid'].'&status='.$row1['status'].'&type=' . "content" . '  >Change</a></td>';
 					echo '<td><a href = removeArticle.php?cid='.$row1['cid'].' >Delete</a></td></tr>';	
 
 				}

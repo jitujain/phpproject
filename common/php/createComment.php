@@ -15,10 +15,11 @@
 	   echo '<br>';
 	while( $row = mysql_fetch_array( $result, MYSQL_ASSOC ))
 	{
-		
+		echo '<div class = "commentbox" style="border-bottom:2px  #CCCCCC;">';
 		echo '<b><br>' . $row['title'] . '</b>';
 		echo '<br><br>';
-		echo  $row['article_text'] ; 
+		echo  $row['article_text'] ;
+		echo '</div>'; 
 
 	}
 	if($count == 0)
@@ -30,11 +31,11 @@
 	while( $row1 = mysql_fetch_array( $result1, MYSQL_ASSOC ))
 	{
 
-		echo '<br>';	
-		//echo '<div style="width:700px;height:60px;background-color:#9286D2;margin-top:20px;">';
+			
+		echo '<div class = "commentbox">'; 	
 		echo '<br>' . $row1['comment'];
 		echo '<br><span style="color:#6AACA5">Comment By-'. $row1['uname'] . '</span>';
-		//echo '</div>';
+		echo '</div>';
 
 	}
     }
@@ -50,8 +51,8 @@
 
 	if( empty($comment)) 
 	{
-		echo "please provide the comment";
-		echo '<a href="fullnew.php"> BACK</a>'; 
+		echo '<span style = "margin-left:60px;">please provide the comment</span>';
+		echo '<a href="fullnew.php" style = "color:#6AACA5;"> BACK</a>'; 
 
 	}
 	else

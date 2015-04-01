@@ -37,12 +37,12 @@ include 'session.php';
 		?>
 		<!-- design of comment button  -->
 		<br>
+		<div class = "commentform">
 		<form method="POST" action="fullnew.php">
 			<input type = "text" class="textbox" name="comment" placeholder="Comment here"><br>
-			<div style = "width:700px;height:40px;background-color:#9281D6;" id="aa">
-            <input type = "submit" value = "Comment" class="sub" name="submit" >
-			</div>
+            <input type = "submit" value = "Comment" id="loginid" name="submit" >
 		</form>
+		</div>
 	</div>
 </div>
 <?php 

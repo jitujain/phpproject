@@ -23,6 +23,11 @@
 		  */
 		  die(header("location:content.php?loginFailed=true&reason=password")); 
 		}
+		elseif( ctype_space($title1) || ctype_space($news))
+	    {
+
+		  die(header("location:content.php?loginFailed=true&reason=password"));
+	    }
 		else
 		{
 
@@ -31,7 +36,7 @@
 		  *data insert into database table
 		  */
 		  echo $uid;
-		  include 'mysql.php';
+		  include '../../common/php/mysql.php';
 		  $sql = "INSERT INTO create_content" . "( uid,title,content_text,status )" . "values( '$uid','$title1','$news','$status' )";
 		  $result = mysql_query( $sql,$conn );
 		  if(! $result )

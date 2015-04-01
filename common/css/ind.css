@@ -376,7 +376,7 @@ option
 .centertextback
 {
 	width:250px; 
-	height: 350px;
+	height: 190px;
 	 
 	background-color:#F4F4F4; 
 	margin-top:20px; 
@@ -425,3 +425,23 @@ option
 	font-size: 15px;
 	color: red;
 }
+.commentbox
+{
+	width:auto;
+	height:60px;
+	margin-top:20px;
+	margin-left:60px;
+	border-bottom:2px solid #CCCCCC;
+	margin-right: 60px;
+}
+.commentform
+{
+	width:auto;
+	height:60px;
+	margin-top:20px;
+	margin-left:60px;
+	margin-right: 60px;
+	border-bottom:2px solid #CCCCCC;
+	margin-bottom: 40px;
+}
+
