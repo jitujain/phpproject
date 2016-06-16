@@ -5,15 +5,25 @@ if( isset($_POST['submit'] ))
 	$title1 = $_POST['title22'];
 	$news = $_POST['article'];
 	$status1 = $_POST['status'];
-	session_start();	
+	session_start();
 	$uid = $_SESSION['uid'];
 	$status=1;
 	if( strcmp($status1,'public') == 0)
 	{
         $status=0;
 	}
-	
+
 	if( empty($title1) || empty($news) || empty($status1))
+	{
+		die(header("location:createArticle.php?loginFailed=true&reason=password"));
+
+	}
+	/**
+	*It check filed have only white-spaces
+	*if yes then give error
+	*otherwise execute the program
+	*/
+	elseif( ctype_space($title1) || ctype_space($news))
 	{
 		die(header("location:createArticle.php?loginFailed=true&reason=password"));
 
@@ -32,7 +42,7 @@ if( isset($_POST['submit'] ))
 	header( "location:teacher.php" );
 	}
 
-	
+
 }
 else
 {

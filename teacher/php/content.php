@@ -30,36 +30,38 @@
 	<div class = "formdes" id="page">
 		<?php
 		session_start();
-		//echo "uname is" . $_SESSION['uname2'];
-		//echo $_SESSION['uname2'];
 		?>
 		<div class="subheader" >
 			<span class="subheaderwc"> Welcome &nbsp; <?php echo ucwords($_SESSION['uname2']) ?></span>
 			<a href="../../common/php/logout.php"><span class="logout">Logout</span></a>
 			<a href = "teacher.php" > Home </a>
 			<a href = "createArticle.php" >Create Article </a >
+			<a href = "content.php" >Create Content </a >
 			<a href = "../../common/php/showArticle.php" > Show  Articles </a>
 			<a href = "showContent.php" > Show  Contents </a>
 		</div>
 
 			<!-- content page design -->
 
-		<p id = "formid"> <b>Please Create Your Content Here</b> </p> 
+		<h2><p id = "formloginid">Create Your Content Here</p></h2>
+		<div class="formbackground">
 		<form  action = "addContent.php" method = "POST">
-			<input type = "text" name = "title22" class = "titlebox" placeholder = "Enter Title "><br>
+			<input type = "text" name = "title22" class = "textbox" placeholder = "Enter Title "><br>
 			<textarea name = "content" class = "articlebox" placeholder = "Enter Content" rows="3" cols="25"></textarea><br>
 			<span class = "selectRadio">Select Status Type</span>
 			<span class = "statusText">Private<span><input type = "radio" name = "status" value = "private" class="radio" checked="checked">
 			<span class = "statusText">Public</span><input type = "radio" name = "status" value = "public" class="radio"><br>
-			<?php 
+			<?php
 				  echo '<div class = "loginerror">';
-				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank."); 
-				  if ($_GET["loginFailed"]) 
+				  $reasons = array("password" => "Provide All The Field", "blank" => "You have left one or more fields blank.");
+				  if ($_GET["loginFailed"])
 				  echo $reasons[$_GET["reason"]];
-				  echo '</div>'; 
+				  echo '</div>';
 			?>
-			<input type = "submit" name = "submit" value = "Submit"  id = "loginid">
+			</br>
+			<input type = "submit" name = "submit" value = "Submit	"  id = "loginid">
 		</form>
+		</div>
 		</div>
 			<!-- include the bottom file -->
 	<?php

@@ -7,6 +7,8 @@ $type = $_GET['type'];
 /**
 *update the status of article
 *if status is equal to public then change it to private or vice-versa
+* 0 means public
+* 1 means private
 */
 if( strcmp($type, 'article') == 0)
 {

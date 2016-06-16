@@ -2,6 +2,7 @@
 $aid = $_GET['aid'];
 $utype = $_GET['utype'];
 session_start();
+$utype1 = $_SESSION['utype2'];
 include 'mysql.php';
 $sql = "SELECT * FROM create_article  where aid='$aid' and status=0 ";
 $result = mysql_query($sql, $conn);
@@ -26,25 +27,28 @@ if($count == 0)
 else
 {
 	if( isset($aid))
-{
-	$_SESSION['aid'] = $aid;
-    header("location:fullnew.php");
+	{
+		$_SESSION['aid'] = $aid;
+		header("location:fullnew.php");
 
-}
+	}
 
 }
 if( isset($utype))
 {
- 
-	if( !strcmp($utype,"student"))
+
+	if( !strcmp($utype,$utype1))
 	{
 		header("location:../../student/php/student.php");
 	}
-	if( !strcmp($utype,"teacher"))
+	if( !strcmp($utype1,"teacher"))
 	{
 		header("location:../../teacher/php/teacher.php");
 	}
-    
+	else
+	{
+		echo "Try to access wrong page";
+	}
 }
 
 

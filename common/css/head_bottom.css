@@ -4,7 +4,7 @@ body
 }
 #logo
 {
-		
+
 	margin-left: 60px;
 	float: left;
 	font-size: 20px;
@@ -13,7 +13,7 @@ body
 .header
 
 {
-	background-color: #333333;
+	background-color: #F4F4F4;
 	margin-top: 0px;
 	height: 65px;
 	width: 100%;
@@ -23,24 +23,25 @@ body
 	height: 45px;
 	width: 100%;
 	float: left;
-	background-color: #504683;
-	
-	
+	background-color: #202121;
+
+
 }
 .bottom p
 {
 	margin-left: 60px;
 	margin-top: 3px;
 	vertical-align: middle;
+	color: #888888;
 }
 .bottom a
 {
-	color: #7065A7;
+	color: #888888;
 }
 .bottomtext
 {
-	font-size:10px;
-	color:#7065A7;
+	font-size:12px;
+	color:#888888;
 
 
 }
