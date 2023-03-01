@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TASK 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <style>
         input[type="number"]{
             border:none;
@@ -24,7 +25,6 @@
         <input type="submit" name="submit" value="SUBMIT">
     </form>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
         var first = $("#first").val();
@@ -36,7 +36,7 @@
 if(isset($_POST('submit'))){
     // Upload and Print image
     $file_name = $_FILES['file']['name'];
-    move_file_upload($this->$_FILES['file']['tmp_name'], $this->"./images/" . $file_name;);
+    move_uploaded_file($this->$_FILES['file']['tmp_name'], $this->"./images/" . $file_name;);
     print "<img src='$this->"./images/" . $file_name' 'height=300 width=300'>";<br>
     // Print full name
     echo "Full Name:-" . $_POST['fname'] . " " . $_POST['lname'];

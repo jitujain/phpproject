@@ -1,3 +1,18 @@
+<?php
+    class name_print
+    {
+        public $first_name,$last_name;
+        function __construct($first_name,$last_name)
+        {
+            $this->firs_tname = $first_name;
+            $this->last_name = $last_name;
+        }
+        public function printfullname()
+        {
+            return "Welcome $this->firstname $this->lastname";
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TASK 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -23,7 +39,6 @@
         <input type="submit" name="submit" value="SUBMIT">
     </form>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
         var first = $("#first").val();
@@ -33,8 +48,10 @@
 </script>
 <?php
 if(isset($_POST('submit'))){
-    // Print full name
-    echo "Full Name:-" . $_POST['fname'] . " " . $_POST['lname'];
+    $first_name = $_POST['fname'];
+    $last_name = $_POST['lname'];
+    $user = new name_print($first_name,$last_name);
+    print $user->printfullname();
 }
 ?>
 </html>
